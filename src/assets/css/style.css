@@ -169,7 +169,7 @@ html .page-main-heading {
 input:focus,
 input:focus-visible,
 textarea:focus,
-textarea:focus-visible {
+textarea:focus-visible, select:focus, select:focus-visible{
   box-shadow: none !important;
   outline: none;
 }
@@ -1003,8 +1003,57 @@ input.form-control::placeholder {
   right: 2px;
 }
 
+.descrp-profile textarea::placeholder {
+  padding-left: 11px;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+input[type=number] {
+  -moz-appearance: textfield;
+}
+select.coutnry-admin.form-select {
+  background-color: #2a2a2a;
+  border-color: #2a2a2a;
+  height: 46px;
+  position: relative;
+  margin: auto;
+  color: #4b4d59;
+  border-radius: 0.25rem;
+  margin-bottom: 0px;
+  font-family: "Inter";
+  font-size: 14px;
+  margin-top: 15px;
+  background-image: none;
+}
+select.coutnry-admin.form-select  option{
+  color: #fff;
+  font-family: "Inter";
+  font-size: 14px;
+}
+.addprofile-page form,.addprofile-page  .descrp-profile textarea {
+  max-width: 100%;
+}
+button.sbmt-user-new.btn.btn-primary {
+  background: #02a3a3 !important;
+  border: 1px solid #02a3a3;
+  width: 134px;
+  height: 43px;
+  border-radius: 0.25rem;
+  padding: 0;
+  line-height: 43px;
+  font-size: 14px;
+  font-family: "Inter";
+  margin-top: 30px;
+}
+button.sbmt-user-new.btn.btn-primary:hover{
+  opacity: 0.8;
+  transition: 0.3s;
+}
 
 
 
