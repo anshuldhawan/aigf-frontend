@@ -9,10 +9,10 @@ import { ProfileNew } from '../Components/AddProfile/ProfileNew';
 export const AddProfile = () => {
   return (
     <>
-       <div className='main-layout d-flex flex-row h-100'>
-   <Navigation/>
-<ProfileNew/>
-   </div>
+      <div className='main-layout d-flex flex-row h-100'>
+        <Navigation />
+        <ProfileNew />
+      </div>
     </>
   )
 }
