@@ -152,7 +152,7 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="/add-profile">
+            <Link className="nav-link position-relative p-0" to="/admin-profiles">
             <i class="fa-solid fa-house-user"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">Admin</p>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AddProfile } from "../Pages/AddProfile";
+import { AdminProfiles } from "../Pages/AdminProfiles";
 import { Chats } from "../Pages/Chats";
 import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";
@@ -21,6 +22,7 @@ export const AllRoutes = () => {
           <Route exact path="/add-profile" element={<AddProfile />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/chats" element={<Chats />} />
+          <Route exact path="/admin-profiles" element={<AdminProfiles />} />
         </Routes>
       </Router>
     </>
