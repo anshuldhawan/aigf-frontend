@@ -48,7 +48,7 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="#">
+            <Link className="nav-link position-relative p-0" to="/my-collections">
               <i className="fas fa-list"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">My Collection</p>
@@ -57,7 +57,7 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="#">
+            <Link className="nav-link position-relative p-0" to="/buy-credits">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -134,7 +134,7 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="#">
+            <Link className="nav-link position-relative p-0" to="/credits">
               <i className="fas fa-coins"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">Current Credits</p>
@@ -143,7 +143,7 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="/login">
+            <Link className="nav-link position-relative p-0" to="/my-account">
               <i className="far fa-user-circle"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">My Account</p>

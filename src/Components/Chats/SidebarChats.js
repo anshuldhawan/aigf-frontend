@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import ChatUser1 from '../../assets/images/avatar/1.png'
-export const SidebarChats = () => {
+export const SidebarChats = ({ show, Setshow }) => {
+
+  const handleClick = () => {
+    Setshow(!show)
+  }
   return (
     <>
       <aside className="sidebar">
@@ -15,7 +19,7 @@ export const SidebarChats = () => {
                   id="chatContactTab"
                   data-chat-list=""
                 >
-                  <li className="contacts-item friends active">
+                  <li onClick={handleClick} className="contacts-item friends active">
                     <Link className="contacts-link" to="#">
                       <div className="avatar avatar-online chat-without-bg">
                         <img src={ChatUser1} alt="" />

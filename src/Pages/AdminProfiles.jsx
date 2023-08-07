@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "../Layout/Navigation";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import PrflImgUsr from '../assets/images/new-user-icon.png'
+import PrflImgUsr from "../assets/images/new-user-icon.png";
 export const AdminProfiles = () => {
     return (
         <>
@@ -29,7 +29,9 @@ export const AdminProfiles = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td className="img-user"><img src={PrflImgUsr} /></td>
+                                        <td className="img-user">
+                                            <img src={PrflImgUsr} />
+                                        </td>
                                         <td>John</td>
                                         <td>Developer</td>
                                         <td>26</td>
@@ -115,7 +117,9 @@ export const AdminProfiles = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="img-user"><img src={PrflImgUsr} /></td>
+                                        <td className="img-user">
+                                            <img src={PrflImgUsr} />
+                                        </td>
                                         <td>Mary</td>
                                         <td>Developer</td>
                                         <td>26</td>
@@ -201,7 +205,9 @@ export const AdminProfiles = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="img-user"><img src={PrflImgUsr} /></td>
+                                        <td className="img-user">
+                                            <img src={PrflImgUsr} />
+                                        </td>
                                         <td>July</td>
                                         <td>Developer</td>
                                         <td>26</td>
@@ -287,7 +293,9 @@ export const AdminProfiles = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="img-user"><img src={PrflImgUsr} /></td>
+                                        <td className="img-user">
+                                            <img src={PrflImgUsr} />
+                                        </td>
                                         <td>July</td>
                                         <td>Developer</td>
                                         <td>26</td>
@@ -373,7 +381,9 @@ export const AdminProfiles = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="img-user"><img src={PrflImgUsr} /></td>
+                                        <td className="img-user">
+                                            <img src={PrflImgUsr} />
+                                        </td>
                                         <td>July</td>
                                         <td>Developer</td>
                                         <td>26</td>
