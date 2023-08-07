@@ -15,115 +15,115 @@ export const ProfilesHome = () => {
   return (
     <>
       <Container className="container-xl px-2 px-sm-3 main-all-homeprofiles">
-        <Row class="row justify-content-center">
+        <Row className="row justify-content-center">
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="/profile" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="/profile" className="proimg unlocked">
                 <img className="w-100" src={Profile1} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile2} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile3} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile4} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile5} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile7} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile8} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile9} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile10} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile1} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile2} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile3} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile4} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile5} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile7} />
               </Link>
             </div>
           </Col>
           <Col lg={3} md={6}>
-            <div class="position-relative mb-30">
-              <Link to="#" class="proimg unlocked">
+            <div className="position-relative mb-30">
+              <Link to="#" className="proimg unlocked">
                 <img className="w-100" src={Profile8} />
               </Link>
             </div>
