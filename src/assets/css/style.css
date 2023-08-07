@@ -1296,6 +1296,18 @@ td.img-user {
   padding-top: 10px !important;
 }
 
+.icon-edit-table a:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+
+
+
+
+
+
+
 /* responsive css */
 
 @media (min-width: 1500px) {
@@ -1305,5 +1317,142 @@ td.img-user {
 
   .main-layout .sidebar {
     width: 32%;
+  }
+}
+
+
+
+@media (max-width:1199px) {
+  .navbar {
+    height: 60px;
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .chat-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-minimal li {
+    padding-top: 0;
+  }
+
+  ul.nav.nav-minimal {
+    padding: 0 30px;
+  }
+
+  .tooltip-text {
+    display: none;
+  }
+
+  ul.nav.nav-minimal li:nth-of-type(2) {
+    padding-top: 3px;
+  }
+
+  ul.nav.nav-minimal li:nth-of-type(4) {
+    padding-top: 3px;
+  }
+
+  ul.nav.nav-minimal li:nth-of-type(5) {
+    padding-top: 3px;
+  }
+
+  ul.nav.nav-minimal li:nth-of-type(6) {
+    padding-top: 2px;
+  }
+
+  .main-layout {
+    padding: 0;
+  }
+
+  .main-all-homeprofiles.container {
+    padding: 0px 15px !important;
+  }
+
+  .main-all-homeprofiles .col-lg-3.col-md-6:last-child {
+    padding-bottom: 60px;
+  }
+}
+
+
+@media (max-width:991px) {
+  .list-container-user {
+    padding: 0 0px !important;
+  }
+
+  html .table-listing-user table td.img-user {
+    padding: 12px 0 12px 20px !important;
+  }
+
+  .myproimg {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .prodesc {
+    width: 100%;
+    padding-top: 30px;
+  }
+
+  .myproimg img {
+    max-width: 340px;
+  }
+
+  .table-listing-user table td {
+    padding: 24px 6px 0 3px !important;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .table-listing-user table th {
+    text-align: center;
+    padding: 20px 2px;
+    font-size: 12px;
+  }
+
+  .icon-edit-table svg {
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    margin: 0 2px !important;
+  }
+
+  html .table-listing-user table td.img-user {
+    padding: 12px 0 12px 20px !important;
+  }
+
+  .icon-profile-user {
+    right: 20px;
+    top: 10px;
+  }
+
+  .icon-profile-user button {
+    width: 114px;
+    height: 37px;
+    padding: 0;
+    line-height: 37px;
+    font-size: 12px;
+  }
+
+  .chat-body-main.w-100 {
+    position: fixed;
+    right: -100%;
+    z-index: 2;
+  }
+
+  .message-day {
+    height: calc(100vh - 137px);
+  }
+
+  .main-layout .sidebar {
+    width: 100%;
+  }
+}
+
+@media (min-width:1200px) {
+  .back-arow {
+    display: none;
   }
 }
