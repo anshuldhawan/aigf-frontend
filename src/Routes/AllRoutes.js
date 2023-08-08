@@ -24,11 +24,11 @@ export const AllRoutes = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/reset-password" element={<ResetPassword />} />
           <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/add-profile" element={<AddProfile />} />
+          <Route exact path="/admin/add-profile" element={<AddProfile />} />
           <Route exact path="/edit-profile/:uid" element={<EditProfile />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/chats" element={<Chats />} />
-          <Route exact path="/admin-profiles" element={<AdminProfiles />} />
+          <Route exact path="/admin/profiles" element={<AdminProfiles />} />
           <Route exact path="/buy-credits" element={<BuyCredits />} />
           <Route exact path="/credits" element={<Credits />} />
           <Route exact path="/my-account" element={<MyAccount />} />

@@ -48,7 +48,10 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="/my-collections">
+            <Link
+              className="nav-link position-relative p-0"
+              to="/my-collections"
+            >
               <i className="fas fa-list"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">My Collection</p>
@@ -82,7 +85,10 @@ export const Navigation = () => {
                     d="M476.8 112.64C474.273 109.421 471.027 106.837 467.323 105.096C463.618 103.355 459.558 102.505 455.467 102.613H106.667C104.32 102.613 144.64 326.613 144.64 326.613H400.64C411.662 326.811 422.41 323.175 431.048 316.327C439.687 309.479 445.679 299.843 448 289.067L482.133 135.04C482.99 131.146 482.955 127.108 482.032 123.229C481.108 119.35 479.32 115.73 476.8 112.64ZM341.333 229.333H314.667V256C314.667 260.243 312.981 264.313 309.98 267.314C306.98 270.314 302.91 272 298.667 272C294.423 272 290.354 270.314 287.353 267.314C284.352 264.313 282.667 260.243 282.667 256V229.333H256C251.757 229.333 247.687 227.648 244.686 224.647C241.686 221.646 240 217.577 240 213.333C240 209.09 241.686 205.02 244.686 202.02C247.687 199.019 251.757 197.333 256 197.333H282.667V170.667C282.667 166.423 284.352 162.354 287.353 159.353C290.354 156.352 294.423 154.667 298.667 154.667C302.91 154.667 306.98 156.352 309.98 159.353C312.981 162.354 314.667 166.423 314.667 170.667V197.333H341.333C345.577 197.333 349.647 199.019 352.647 202.02C355.648 205.02 357.333 209.09 357.333 213.333C357.333 217.577 355.648 221.646 352.647 224.647C349.647 227.648 345.577 229.333 341.333 229.333Z"
                     fill="#9eb7b7"
                   />
-                  <path d="M491 102.5H453.5L480 144L491 102.5Z" fill="#9eb7b7" />
+                  <path
+                    d="M491 102.5H453.5L480 144L491 102.5Z"
+                    fill="#9eb7b7"
+                  />
                   <path
                     d="M400 353.254L428 353V397H400V353.254Z"
                     fill="#9eb7b7"
@@ -152,15 +158,16 @@ export const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link position-relative p-0" to="/admin-profiles">
+            <Link
+              className="nav-link position-relative p-0"
+              to="/admin/profiles"
+            >
               <i className="fa-solid fa-house-user"></i>
               <div className="tooltip-text position-absolute">
                 <p className="m-0">Admin</p>
               </div>
             </Link>
           </li>
-
-
         </ul>
       </div>
     </>

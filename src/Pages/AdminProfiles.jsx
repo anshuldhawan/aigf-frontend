@@ -133,7 +133,7 @@ export const AdminProfiles = () => {
         <Navigation />
         <div className="profiles-home listing-new-users main-visible position-relative">
           <div className="icon-profile-user position-absolute">
-            <Link to="/add-profile">
+            <Link to="/admin/add-profile">
               <Button>Add New Profile</Button>
             </Link>
           </div>
