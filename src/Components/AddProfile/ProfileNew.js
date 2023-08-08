@@ -88,9 +88,9 @@ export const ProfileNew = () => {
 
     onSubmit: (values, { resetForm }) => {
       const callback2 = (res) => {
-        if (res?.error == false) {
+        if (res?.error === false) {
           toast.success("Profile added successfully");
-          navigate("/admin-profiles");
+          navigate("/admin/profiles");
         } else {
           toast.error(res?.data?.message || "Server error");
         }

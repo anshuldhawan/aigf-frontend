@@ -1,7 +1,8 @@
 import axios from "axios";
 import { API_URL, API_VERSION, API_TOKEN } from "./URLS";
 
-const token = localStorage.getItem("token");
+const adminToken = localStorage.getItem("adminToken");
+const userToken = localStorage.getItem("userToken");
 
 class Axios {
   defaultOptions = () => {
@@ -17,7 +18,7 @@ class Axios {
     return {
       baseURL: `${API_URL}`,
       headers: {
-        Authorization: "Bearer" + " " + token,
+        Authorization: "Bearer" + " " + adminToken || userToken,
         // adminid: (localStorage && localStorage.getItem("_id")) || "",
       },
     };

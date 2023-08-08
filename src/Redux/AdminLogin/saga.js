@@ -5,9 +5,14 @@ import * as API from "../../Services/ApiCalls";
 
 function* AdminLoginSaga({ payload, callBack }) {
   const response = yield call(API.ADMIN_LOGIN, payload);
+  console.log(response, "saga responsee");
   try {
     if (response.status === 200) {
       yield put(ACTION.adminLogin_Success(response.data));
+      localStorage.setItem(
+        "adminToken",
+        response.data?.data?.stsTokenManager?.accessToken
+      );
       callBack && callBack(response.data);
     } else {
       yield put(ACTION.adminLogin_Fail(response.data.error));

@@ -7,19 +7,20 @@ import { useDispatch } from "react-redux";
 import { adminLogin } from "../Redux/AdminLogin/actions";
 import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
+export const AdminLogin = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
   });
   const dispatch = useDispatch();
-  const handleSignIn = () => {
+  const handleSignIn = (e) => {
+    e.preventDefault();
     const callback = (res) => {
       console.log(res);
       if (res.error === false) {
         toast.success("Login Successfully");
-        navigate("/");
+        navigate("/admin/profiles");
       } else {
         toast.error("Invalid credentails");
       }
@@ -39,9 +40,9 @@ export const Login = () => {
           <Row className="row no-gutters text-center align-items-center justify-content-center min-vh-100">
             <Col md={6} lg={5} xl={4} className="col-12">
               <h1 className="font-weight-bold">Sign in</h1>
-              <p className="text-dark mb-3">
+              {/* <p className="text-dark mb-3">
                 We are Different, We Make You Different.
-              </p>
+              </p> */}
               <form className="mb-3" action="#">
                 <div className="form-group">
                   <label for="email" className="sr-only">
@@ -97,28 +98,7 @@ export const Login = () => {
                 >
                   Sign in
                 </button>
-                <div className="or-text text-center py-2 text-white">OR</div>
-                <Link to="/">
-                  <button
-                    className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
-                    type="submit"
-                  >
-                    <img
-                      src={GoogleImg}
-                      width="18"
-                      className="align-middle mr-2 d-inline-block"
-                    />
-                    Sign in With Google
-                  </button>
-                </Link>
               </form>
-
-              <p className="dont-text">
-                Don't have an account?{" "}
-                <Link className="font-weight-semibold" to="/signup">
-                  Sign up
-                </Link>
-              </p>
             </Col>
           </Row>
         </Container>

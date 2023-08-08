@@ -13,6 +13,7 @@ import { Profile } from "../Pages/Profile";
 import { ResetPassword } from "../Pages/ResetPassword";
 import { SignUp } from "../Pages/SignUp";
 import EditProfile from "../Pages/EditProfile";
+import { AdminLogin } from "../Pages/AdminLogin";
 
 export const AllRoutes = () => {
   return (
@@ -22,6 +23,7 @@ export const AllRoutes = () => {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/my-collections" element={<MyCollections />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/admin/login" element={<AdminLogin />} />
           <Route exact path="/reset-password" element={<ResetPassword />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/admin/add-profile" element={<AddProfile />} />

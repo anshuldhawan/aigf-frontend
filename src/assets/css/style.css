@@ -133,6 +133,10 @@ html .page-main-heading {
   color: #fff;
 }
 
+.nav-link.active i {
+  color: #fff;
+}
+
 .navigation.navbar.navbar-light {
   z-index: 2;
   border-right: 1px solid #2b2b2f !important;
@@ -1474,7 +1478,19 @@ td.img-user {
   .list-container-user {
     padding: 0 0px !important;
   }
-
+  .table-listing-user table td,
+  .table-listing-user table th {
+    white-space: nowrap;
+  }
+  .list-container-user.h-100.container {
+    padding: 0 15px !important;
+  }
+  .table-listing-user table td {
+    text-align: center !important;
+  }
+  html .table-listing-user {
+    display: unset !important;
+  }
   html .table-listing-user table td.img-user {
     padding: 12px 0 12px 20px !important;
   }
@@ -1616,4 +1632,57 @@ td.img-user {
 .locked-popup button.btn:hover {
   opacity: 0.9;
   transition: 0.3s;
+}
+
+html .table-listing-user {
+  height: 420px !important;
+  overflow-y: scroll;
+  justify-content: flex-start !important;
+}
+.icon-login-header button {
+  background: #1ba6a2;
+  border: 1px solid #1ba6a2;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.icon-login-header button:hover,
+.icon-login-header button:active {
+  background: #1ba6a2 !important;
+  border: 1px solid #1ba6a2 !important;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+.icon-profile-user.position-absolute {
+  margin-top: 10px !important;
+  margin-bottom: 30px !important;
+}
+.list-container-user.h-100.container {
+  height: auto !important;
+  padding-bottom: 50px !important;
+}
+.icon-login-header button:after {
+  display: none;
+}
+.icon-login-header span {
+  color: #fff;
+  font-family: "Inter";
+}
+
+.main-header-admin h2 {
+  font-size: 24px;
+  font-family: "Inter";
+  padding-top: 10px;
+}
+
+html .table-listing-user .table-responsive {
+  width: 100%;
 }
