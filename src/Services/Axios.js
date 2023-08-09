@@ -18,7 +18,9 @@ class Axios {
     return {
       baseURL: `${API_URL}`,
       headers: {
-        Authorization: "Bearer" + " " + adminToken || userToken,
+        Authorization: adminToken
+          ? "Bearer" + " " + adminToken
+          : "Bearer" + " " + userToken,
         // adminid: (localStorage && localStorage.getItem("_id")) || "",
       },
     };

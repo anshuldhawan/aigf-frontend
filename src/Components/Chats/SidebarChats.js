@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
-import ChatUser1 from '../../assets/images/avatar/1.png'
-export const SidebarChats = ({ show, Setshow }) => {
+import ChatUser1 from "../../assets/images/avatar/1.png";
+import DummyImg from "../../assets/images/avatar/dummy.png";
+import { useDispatch, useSelector } from "react-redux";
+import { unlockBotList } from "../../Redux/actions";
+export const SidebarChats = ({ show, Setshow, botId, setBotId }) => {
+  const dispatch = useDispatch();
+  const unlockBots = useSelector((s) => s?.Bots?.unlockBots?.data);
+  console.log(unlockBots, "unlockBotsunlockBots");
+  useEffect(() => {
+    dispatch(unlockBotList());
+  }, [dispatch]);
 
   const handleClick = () => {
-    Setshow(!show)
-  }
+    Setshow(!show);
+  };
   return (
     <>
       <aside className="sidebar">
@@ -19,29 +27,44 @@ export const SidebarChats = ({ show, Setshow }) => {
                   id="chatContactTab"
                   data-chat-list=""
                 >
-                  <li onClick={handleClick} className="contacts-item friends active">
-                    <Link className="contacts-link" to="#">
-                      <div className="avatar avatar-online chat-without-bg">
-                        <img src={ChatUser1} alt="" />
-                      </div>
-                      <div className="contacts-content">
-                        <div className="contacts-info">
-                          <h6 className="chat-name text-truncate">
-                            David Alcantara
-                          </h6>
-                          <div className="chat-time">00:00 am</div>
-                        </div>
-                        <div className="contacts-texts">
-                          <p className="text-truncate">
-                            lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </li>
+                  {unlockBots &&
+                    unlockBots.length > 0 &&
+                    unlockBots.map((item) => {
+                      return (
+                        <li
+                          onClick={handleClick}
+                          className={`contacts-item friends ${
+                            botId === item.uid ? "active" : ""
+                          }`}
+                        >
+                          <Link
+                            className="contacts-link"
+                            to="#"
+                            onClick={() => setBotId(item.uid)}
+                          >
+                            <div className="avatar avatar-online chat-without-bg">
+                              <img src={item.profileImage || DummyImg} alt="" />
+                            </div>
+                            <div className="contacts-content">
+                              <div className="contacts-info">
+                                <h6 className="chat-name text-truncate">
+                                  {item.name}
+                                </h6>
+                                <div className="chat-time">00:00 am</div>
+                              </div>
+                              <div className="contacts-texts">
+                                <p className="text-truncate">
+                                  lorem ipsum dolor sit amet, consectetur
+                                  adipisicing elit
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </li>
+                      );
+                    })}
 
-                  <li className="contacts-item friends">
+                  {/* <li className="contacts-item friends">
                     <Link className="contacts-link" to="#">
                       <div className="avatar avatar-offline bg-name text-light">
                         <span>HA</span>
@@ -185,7 +208,7 @@ export const SidebarChats = ({ show, Setshow }) => {
                         </div>
                       </div>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

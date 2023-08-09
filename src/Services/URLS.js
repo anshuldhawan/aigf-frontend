@@ -1,12 +1,27 @@
-export const API_URL = "https://chatwebsite-api.suffescom.dev/api/v1/";
+// export const API_URL = "https://chatwebsite-api.suffescom.dev/api/v1/";
+// export const API_URL = "http://192.168.19.24:5004/api/v1/";
+export const API_URL = "http://localhost:5004/api/v1/";
 
+// ================ ADMIN ==================== //
 export const ADMIN_LOGIN = "admin/login";
 export const CREATE_BOT = "admin/createBot";
 export const UPLOAD_FILE = "file/upload";
-export const GET_BOT_LIST = "/admin/botList";
-export const DELETE_BOT = "/admin/deleteBot";
-export const EDIT_BOT = "/admin/updateBot";
-export const GET_BOT_DETAILS = "/admin/getBot";
+export const GET_BOT_LIST = "admin/botList";
+export const DELETE_BOT = "admin/deleteBot";
+export const EDIT_BOT = "admin/updateBot";
+export const GET_BOT_DETAILS = "admin/getBot";
+
+// =================== USER ===================== //
+
+export const USER_SIGNUP = "user/signup";
+export const USER_LOGIN = "user/login";
+
+export const USER_BOT_LIST = "user/botList";
+export const GET_BOT = "user/getBot";
+export const UNLOCK_BOT_LIST = "user/unlockBotList";
+
+export const SEND_MESSAGE = "user/sendMessage";
+export const MESSAGE_HISTORY = "user/messageHistory";
 
 // export const STRIPE_PUBLIC_KEY = "pk_test_LLAdXVApiHYl2QUmtHy2HiHT";
 

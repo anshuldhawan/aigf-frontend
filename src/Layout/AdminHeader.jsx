@@ -1,6 +1,14 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
+
 export const AdminHeader = () => {
+  const navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <>
       <div class="page-main-heading sticky-top py-myhead px-3 mb-3 w-100">
@@ -12,7 +20,7 @@ export const AdminHeader = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="/admin/login">
+              <Dropdown.Item onClick={handleLogout}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
