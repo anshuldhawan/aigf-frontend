@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./App.css";
 import "./assets/css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +12,17 @@ function App() {
       <ToastContainer autoClose={1500} />
       <AllRoutes />
     </>
+=======
+import './App.css';
+import './assets/css/style.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { AllRoutes } from './Routes/AllRoutes';
+function App() {
+  return (
+   <>
+   <AllRoutes/>
+   </>
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
   );
 }
 

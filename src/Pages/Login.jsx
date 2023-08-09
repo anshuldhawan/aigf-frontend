@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -32,6 +33,13 @@ export const Login = () => {
       dispatch(adminLogin(data, callback));
     }
   };
+=======
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import GoogleImg from "../../src/assets/images/google.png";
+export const Login = () => {
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
   return (
     <>
       <div className="main-layout card-bg-1 login-page">
@@ -51,6 +59,7 @@ export const Login = () => {
                     type="email"
                     className="form-control form-control-md"
                     id="email"
+<<<<<<< HEAD
                     value={data?.email}
                     onChange={(e) =>
                       setData((prevData) => ({
@@ -58,6 +67,9 @@ export const Login = () => {
                         email: e.target.value,
                       }))
                     }
+=======
+                    value="nairottheme@gmail.com"
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
                   />
                 </div>
                 <div className="form-group">
@@ -68,6 +80,7 @@ export const Login = () => {
                     type="password"
                     className="form-control form-control-md"
                     id="password"
+<<<<<<< HEAD
                     value={data?.password}
                     onChange={(e) =>
                       setData((prevData) => ({
@@ -75,14 +88,23 @@ export const Login = () => {
                         password: e.target.value,
                       }))
                     }
+=======
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
                     placeholder="Enter your password"
                   />
                 </div>
                 <div className="form-group d-flex justify-content-between checkbocx-login">
+<<<<<<< HEAD
                   <div class="form-group">
                     <input type="checkbox" id="html" />{" "}
                     <label for="html">Remember me</label>
                   </div>
+=======
+                <div class="form-group">
+                      <input type="checkbox" id="html" />{" "}
+                      <label for="html">Remember me</label>
+                    </div>
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
                   <Link
                     className="reset-link text-decoration-none font-size-sm"
                     to="/reset-password"
@@ -93,12 +115,16 @@ export const Login = () => {
                 <button
                   className="button-signup btn btn-primary btn-lg btn-block text-uppercase font-weight-semibold"
                   type="submit"
+<<<<<<< HEAD
                   onClick={handleSignIn}
+=======
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
                 >
                   Sign in
                 </button>
                 <div className="or-text text-center py-2 text-white">OR</div>
                 <Link to="/">
+<<<<<<< HEAD
                   <button
                     className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
                     type="submit"
@@ -110,6 +136,19 @@ export const Login = () => {
                     />
                     Sign in With Google
                   </button>
+=======
+                <button
+                  className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
+                  type="submit"
+                >
+                  <img
+                    src={GoogleImg}
+                    width="18"
+                    className="align-middle mr-2 d-inline-block"
+                  />
+                  Sign in With Google
+                </button>
+>>>>>>> d860a4c564b29050a7d347a0f6bbad6a96b2b9d2
                 </Link>
               </form>
 
