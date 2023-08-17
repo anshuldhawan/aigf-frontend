@@ -11,6 +11,8 @@ const intialState = {
   fileLoader: false,
   user: {},
   role: "",
+  adminToken: (localStorage && localStorage.getItem("adminToken")) || "",
+  userToken: (localStorage && localStorage.getItem("userToken")) || "",
 };
 
 const AdminLoginReducer = (state = intialState, { type, payload }) => {
@@ -27,6 +29,8 @@ const AdminLoginReducer = (state = intialState, { type, payload }) => {
         ...state,
         loading: false,
         user: payload,
+        userToken: payload,
+        adminToken: payload,
         error: null,
       };
     case CONST.ADMIN_LOGIN_FAIL:

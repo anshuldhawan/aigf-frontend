@@ -61,6 +61,7 @@ export const ProfileNew = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [imgArray, setImgArray] = useState([]);
   const [uploadingFiles, setUploadingFiles] = useState(false);
   const { bot, botDetails, isUpdate, loading } = useSelector((s) => s.Admin);
 
@@ -101,28 +102,50 @@ export const ProfileNew = () => {
         }
       };
 
-      const callback = (res) => {
-        const imgData = res?.data;
-        const imgArray = imgData.map((item, index) => {
+      // const callback = (res) => {
+      //   const imgData = res?.data;
+      //   const imgArray = imgData.map((item, index) => {
+      //     return {
+      //       url: item?.url,
+      //       caption: item?.originalName,
+      //     };
+      //   });
+      //   const data = { ...values, images: imgArray };
+      //   setUploadingFiles(false);
+      dispatch(createBot({ ...values, images: imgArray }, callback2));
+      // };
+
+      // let formData = new FormData();
+      // formData.append("folderName", "test");
+      // for (var i = 0; i < uploadedFiles.length; i++) {
+      //   formData.append("files", uploadedFiles[i]);
+      // }
+      // setUploadingFiles(true);
+      // dispatch(uploadFile(formData, callback));
+    },
+  });
+
+  const handleUploadFile = () => {
+    const callback = (res) => {
+      setUploadingFiles(false);
+      const imgData = res?.data;
+      setImgArray(
+        imgData.map((item, index) => {
           return {
             url: item?.url,
             caption: item?.originalName,
           };
-        });
-        const data = { ...values, images: imgArray };
-        setUploadingFiles(false);
-        dispatch(createBot(data, callback2));
-      };
-
-      let formData = new FormData();
-      formData.append("folderName", "test");
-      for (var i = 0; i < uploadedFiles.length; i++) {
-        formData.append("files", uploadedFiles[i]);
-      }
-      setUploadingFiles(true);
-      dispatch(uploadFile(formData, callback));
-    },
-  });
+        })
+      );
+    };
+    let formData = new FormData();
+    formData.append("folderName", "test");
+    for (var i = 0; i < uploadedFiles.length; i++) {
+      formData.append("files", uploadedFiles[i]);
+    }
+    setUploadingFiles(true);
+    dispatch(uploadFile(formData, callback));
+  };
 
   const handleAttributeChange = (e) => {
     const { name, value } = e.target;

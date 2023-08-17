@@ -20,7 +20,9 @@ export const MyAccount = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (

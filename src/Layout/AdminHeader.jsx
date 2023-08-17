@@ -12,7 +12,7 @@ export const AdminHeader = () => {
     e.preventDefault();
     localStorage.removeItem("adminToken");
     dispatch(adminLogout());
-    navigate("/admin/login");
+    navigate("/login");
   };
   return (
     <>

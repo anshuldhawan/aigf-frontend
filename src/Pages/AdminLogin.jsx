@@ -29,8 +29,12 @@ export const AdminLogin = () => {
       const callback = (res) => {
         if (res.error === false) {
           toast.success("Login Successfully");
-          navigate("/admin/profiles");
           dispatch(updateRole("admin"));
+          navigate("/admin/profiles");
+          // setTimeout(() => {
+          //   window.location.reload();
+          //   navigate("/admin/profiles");
+          // }, 1000);
         } else {
           toast.error(res?.message);
         }
