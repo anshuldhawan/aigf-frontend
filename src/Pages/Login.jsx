@@ -30,10 +30,7 @@ export const Login = () => {
         if (res.error === false) {
           toast.success("Login Successfully");
           dispatch(updateRole("user"));
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
-          navigate("/");
+          navigate("/home");
         } else {
           toast.error(res?.message);
         }

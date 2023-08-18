@@ -9,7 +9,7 @@ export const Home = () => {
       <div className="main-layout d-flex flex-row h-100">
         <Navigation />
         <div className="profiles-home main-visible">
-          <Header />
+          <Header title="Home" text="Welcome to SiteName Dashboard !" />
           <ProfilesHome />
         </div>
       </div>

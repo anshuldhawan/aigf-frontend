@@ -20,9 +20,7 @@ export const MyAccount = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    navigate("/login");
   };
 
   return (
@@ -30,7 +28,10 @@ export const MyAccount = () => {
       <div className="main-layout d-flex flex-row h-100">
         <Navigation />
         <div className="profiles-home main-visible">
-          <Header />
+          <Header
+            title="My Account"
+            text="See your account details and your total Credit amount"
+          />
 
           <Container className="container-xl px-2 px-sm-3 my-account-page">
             <div className="myprof d-block pt-4 pt-md-5 pb-4 pb-md-5">

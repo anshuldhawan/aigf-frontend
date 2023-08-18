@@ -21,11 +21,52 @@ import { toast } from "react-toastify";
 import ButtonLoader from "../Components/common/ButtonLoader";
 import { Navigation } from "../Layout/Navigation";
 
+const Countries = [
+  {
+    name: "India",
+    id: "India",
+  },
+  {
+    name: "USA",
+    id: "USA",
+  },
+  {
+    name: "Russia",
+    id: "Russia",
+  },
+  {
+    name: "Germany",
+    id: "Germany",
+  },
+  {
+    name: "Nigeria",
+    id: "Nigeria",
+  },
+];
+
+const Attributes = [
+  {
+    name: "Intelligent",
+    id: "Intelligent",
+  },
+  {
+    name: "Responsive",
+    id: "Responsive",
+  },
+  {
+    name: "Very Intelligent",
+    id: "Very Intelligent",
+  },
+  {
+    name: "Very Responsive",
+    id: "Very Responsive",
+  },
+];
+
 const EditProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [imgArray, setImgArray] = useState([]);
   const { bot, botDetails, isUpdate, loading } = useSelector((s) => s.Admin);
   const { uid } = useParams();
   const [uploadingFiles, setUploadingFiles] = useState(false);
@@ -87,50 +128,28 @@ const EditProfile = () => {
         }
       };
 
-      // const callback = (res) => {
-      //   setUploadingFiles(false);
-      //   const imgData = res?.data;
-      //   const imgArray = imgData.map((item, index) => {
-      //     return {
-      //       url: item?.url,
-      //       caption: item?.originalName,
-      //     };
-      //   });
-      // const data = { ...values, images: imgArray, uid: uid };
-      dispatch(editBot({ ...values, images: imgArray, uid: uid }, callback2));
-      // };
-
-      // let formData = new FormData();
-      // formData.append("folderName", "test");
-      // for (var i = 0; i < uploadedFiles.length; i++) {
-      //   formData.append("files", uploadedFiles[i]);
-      // }
-      // setUploadingFiles(true);
-      // dispatch(uploadFile(formData, callback));
-    },
-  });
-
-  const handleUploadFile = () => {
-    const callback = (res) => {
-      setUploadingFiles(false);
-      const imgData = res?.data;
-      setImgArray(
-        imgData.map((item, index) => {
+      const callback = (res) => {
+        setUploadingFiles(false);
+        const imgData = res?.data;
+        const imgArray = imgData.map((item, index) => {
           return {
             url: item?.url,
             caption: item?.originalName,
           };
-        })
-      );
-    };
-    let formData = new FormData();
-    formData.append("folderName", "test");
-    for (var i = 0; i < uploadedFiles.length; i++) {
-      formData.append("files", uploadedFiles[i]);
-    }
-    setUploadingFiles(true);
-    dispatch(uploadFile(formData, callback));
-  };
+        });
+        const data = { ...values, images: imgArray, uid: uid };
+        dispatch(editBot(data, callback2));
+      };
+
+      let formData = new FormData();
+      formData.append("folderName", "test");
+      for (var i = 0; i < uploadedFiles.length; i++) {
+        formData.append("files", uploadedFiles[i]);
+      }
+      setUploadingFiles(true);
+      dispatch(uploadFile(formData, callback));
+    },
+  });
 
   const handleAttributeChange = (e) => {
     const { name, value } = e.target;
@@ -172,13 +191,6 @@ const EditProfile = () => {
         description: data?.description,
         role: "bot",
       });
-      setUploadedFiles(
-        data?.images &&
-          data?.images.length > 0 &&
-          data?.images?.map((item) => {
-            return { preview: item.url };
-          })
-      );
     }
   }, [botDetails]);
 
@@ -187,6 +199,8 @@ const EditProfile = () => {
       getBotDetailss();
     }
   }, []);
+
+  console.log(botDetails?.data);
 
   return (
     <>
@@ -353,7 +367,6 @@ const EditProfile = () => {
                 <FileUploader
                   uploadedFiles={uploadedFiles}
                   setUploadedFiles={setUploadedFiles}
-                  handleUploadFile={handleUploadFile}
                 />
                 <div
                   style={{ width: "140px", margin: "auto" }}

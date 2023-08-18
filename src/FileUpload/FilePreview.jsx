@@ -2,12 +2,7 @@ import React, { useCallback, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDropzone } from "react-dropzone";
 
-const FileUploader = ({
-  uploadedFiles,
-  setUploadedFiles,
-  images,
-  handleUploadFile,
-}) => {
+const FileUploader = ({ uploadedFiles, setUploadedFiles, images }) => {
   const onDrop = useCallback((acceptedFiles) => {
     const allowedExtensions = ["jpg", "jpeg", "png", "svg"];
     const filteredFiles = acceptedFiles.filter((file) =>
@@ -20,7 +15,6 @@ const FileUploader = ({
     );
 
     setUploadedFiles((prevFiles) => [...prevFiles, ...filesWithPreview]);
-    handleUploadFile();
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
@@ -29,32 +23,29 @@ const FileUploader = ({
     setUploadedFiles((prevFiles) => prevFiles.filter((f) => f !== file));
   };
 
-  const filePreviews =
-    uploadedFiles &&
-    uploadedFiles.length > 0 &&
-    uploadedFiles.map((file) => (
-      <Col lg={2} className="my-4">
-        <div key={file.name} className="file-preview position-relative">
-          <img className="img-fluid" src={file?.preview || file} />
-          <p>{file.name}</p>
+  const filePreviews = uploadedFiles.map((file) => (
+    <Col lg={2} className="my-4">
+      <div key={file.name} className="file-preview position-relative">
+        <img className="img-fluid" src={file.preview || file} />
+        <p>{file.name}</p>
 
-          <button onClick={() => removeFile(file)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              version="1.2"
-              viewBox="0 0 16 16"
-              width="16"
-              height="16"
-            >
-              <path
-                class="a"
-                d="m0.3 0.3q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l6.3 6.3 6.3-6.3q0.3-0.3 0.7-0.3 0.4 0 0.7 0.3 0.3 0.3 0.3 0.7 0 0.4-0.3 0.7l-6.3 6.3 6.3 6.3q0.3 0.3 0.3 0.7 0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3l-6.3-6.3-6.3 6.3q-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7 0-0.4 0.3-0.7l6.3-6.3-6.3-6.3q-0.1-0.1-0.2-0.3-0.1-0.2-0.1-0.4 0-0.2 0.1-0.4 0.1-0.2 0.2-0.3z"
-              />
-            </svg>
-          </button>
-        </div>
-      </Col>
-    ));
+        <button onClick={() => removeFile(file)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.2"
+            viewBox="0 0 16 16"
+            width="16"
+            height="16"
+          >
+            <path
+              class="a"
+              d="m0.3 0.3q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l6.3 6.3 6.3-6.3q0.3-0.3 0.7-0.3 0.4 0 0.7 0.3 0.3 0.3 0.3 0.7 0 0.4-0.3 0.7l-6.3 6.3 6.3 6.3q0.3 0.3 0.3 0.7 0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3l-6.3-6.3-6.3 6.3q-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7 0-0.4 0.3-0.7l6.3-6.3-6.3-6.3q-0.1-0.1-0.2-0.3-0.1-0.2-0.1-0.4 0-0.2 0.1-0.4 0.1-0.2 0.2-0.3z"
+            />
+          </svg>
+        </button>
+      </div>
+    </Col>
+  ));
 
   return (
     <Row>

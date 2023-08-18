@@ -5,103 +5,81 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { authRoutes, userRoutes, adminRoutes } from "./routes";
-// import { AddProfile } from "../Pages/AddProfile";
-// import { AdminProfiles } from "../Pages/AdminProfiles";
-// import { BuyCredits } from "../Pages/BuyCredits";
-// import { Chats } from "../Pages/Chats";
-// import { Credits } from "../Pages/Credits";
-// import { Home } from "../Pages/Home";
-// import { Login } from "../Pages/Login";
-// import { MyAccount } from "../Pages/MyAccount";
-// import { MyCollections } from "../Pages/MyCollections";
-// import { Profile } from "../Pages/Profile";
-// import { ResetPassword } from "../Pages/ResetPassword";
-// import { SignUp } from "../Pages/SignUp";
-// import EditProfile from "../Pages/EditProfile";
-// import { AdminLogin } from "../Pages/AdminLogin";
+import { AddProfile } from "../Pages/AddProfile";
+import { AdminProfiles } from "../Pages/AdminProfiles";
+import { BuyCredits } from "../Pages/BuyCredits";
+import { Chats } from "../Pages/Chats";
+import { Credits } from "../Pages/Credits";
+import { Home } from "../Pages/Home";
+import { Login } from "../Pages/Login";
+import { MyAccount } from "../Pages/MyAccount";
+import { MyCollections } from "../Pages/MyCollections";
+import { Profile } from "../Pages/Profile";
+import { ResetPassword } from "../Pages/ResetPassword";
+import { SignUp } from "../Pages/SignUp";
+import EditProfile from "../Pages/EditProfile";
+import { AdminLogin } from "../Pages/AdminLogin";
+import PrivateRoute from "./PrivateRoute";
+import { useSelector } from "react-redux";
 
 export const AllRoutes = () => {
   const adminToken = localStorage.getItem("adminToken");
   const userToken = localStorage.getItem("userToken");
+  const { role } = useSelector((s) => s.Admin);
+
+  const publicRoutes = [
+    { path: "/login", component: <Login /> },
+    { path: "/admin/login", component: <AdminLogin /> },
+    { path: "/reset-password", component: <ResetPassword /> },
+    { path: "/signup", component: <SignUp /> },
+  ];
+
+  const userRoutes = [
+    { path: "/home", component: <Home /> },
+    { path: "/my-collections", component: <MyCollections /> },
+    { path: "/my-account", component: <MyAccount /> },
+    { path: "/credits", component: <Credits /> },
+    { path: "/buy-credits", component: <BuyCredits /> },
+    { path: "/profile/:botId", component: <Profile /> },
+    { path: "/chats/:botId", component: <Chats /> },
+  ];
+
+  const adminRoutes = [
+    { path: "/admin/profiles", component: <AdminProfiles /> },
+    { path: "/admin/add-profile", component: <AddProfile /> },
+    { path: "/edit-profile/:uid", component: <EditProfile /> },
+  ];
 
   return (
     <>
       <Router>
         <Routes>
-          {adminToken !== null && userToken == null ? (
-            <>
+          {publicRoutes.map((item, index) => (
+            <Route path={item.path} element={item.component} key={index} />
+          ))}
+
+          {role === "user" &&
+            userToken &&
+            userRoutes.map((item, index) => (
               <Route
-                path="*"
-                element={<Navigate replace to="/admin/profiles" />}
+                path={item.path}
+                element={<PrivateRoute>{item.component}</PrivateRoute>}
+                key={index}
               />
-            </>
-          ) : (
-            <>
-              {authRoutes.map((data, index) => (
-                <Route
-                  onUpdate={() => window.scrollTo(0, 0)}
-                  exact={true}
-                  path={data.path}
-                  element={data.component}
-                  key={index}
-                />
-              ))}
-            </>
-          )}
-
-          {userToken !== null && adminToken == null ? (
-            <>
-              <Route path="*" element={<Navigate replace to="/" />} />
-            </>
-          ) : (
-            <>
-              {authRoutes.map((data, index) => (
-                <Route
-                  onUpdate={() => window.scrollTo(0, 0)}
-                  exact={true}
-                  path={data.path}
-                  element={data.component}
-                  key={index}
-                />
-              ))}
-            </>
-          )}
-
-          {userToken !== null &&
-            adminToken == null &&
-            userRoutes.map((data, index) => (
-              <Route path={data.path} element={data.component} key={index} />
             ))}
 
-          {adminToken !== null &&
-            userToken == null &&
-            adminRoutes.map((data, index) => (
-              <Route path={data.path} element={data.component} key={index} />
+          {role === "admin" &&
+            adminToken &&
+            adminRoutes.map((item, index) => (
+              <Route
+                path={item.path}
+                element={<PrivateRoute>{item.component}</PrivateRoute>}
+                key={index}
+              />
             ))}
 
-          {adminToken == null && userToken == null && (
-            <Route path="*" element={<Navigate replace to="/login" />} />
-          )}
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
-
-        {/* <Routes>  
-          <Route exact path="/admin/login" element={<AdminLogin />} />
-          <Route exact path="/admin/profiles" element={<AdminProfiles />} />
-          <Route exact path="/admin/add-profile" element={<AddProfile />} />
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/my-collections" element={<MyCollections />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/reset-password" element={<ResetPassword />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/edit-profile/:uid" element={<EditProfile />} />
-          <Route exact path="/profile/:botId" element={<Profile />} />
-          <Route exact path="/chats/:botId" element={<Chats />} />
-          <Route exact path="/buy-credits" element={<BuyCredits />} />
-          <Route exact path="/credits" element={<Credits />} />
-          <Route exact path="/my-account" element={<MyAccount />} />
-        </Routes> */}
       </Router>
     </>
   );

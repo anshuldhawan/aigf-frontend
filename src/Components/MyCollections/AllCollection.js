@@ -36,6 +36,7 @@ export const AllCollection = () => {
         <Row className="row justify-content-center">
           {unlockBots?.map((item, index) => {
             const img = item?.images?.[0]?.url;
+            console.log(img, "item");
             return (
               <Col lg={3} md={6} key={index}>
                 <div className="position-relative mb-30">

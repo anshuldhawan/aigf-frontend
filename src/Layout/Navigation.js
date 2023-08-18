@@ -15,7 +15,7 @@ export const Navigation = () => {
           <img src={Logo} width="38" />
         </Link>
         <ul className="nav nav-minimal flex-row flex-grow-1 justify-content-between flex-xl-column justify-content-xl-center">
-          {(!adminToken || role == "user") && (
+          {role == "user" && (
             <>
               <li className="nav-item">
                 <Link
@@ -191,7 +191,7 @@ export const Navigation = () => {
             </>
           )}
 
-          {(adminToken || role == "admin") && (
+          {role == "admin" && (
             <li className="nav-item">
               <Link
                 className={`nav-link position-relative p-0 ${

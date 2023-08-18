@@ -15,6 +15,7 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
     //   direction: "received",
     // };
     const callBack = (res) => {
+      console.log(res, "response");
       // setMessaegState((pre) => [...pre, ]);
       setText("");
       dispatch(messageHistory({ uid: BotData?.uid }));

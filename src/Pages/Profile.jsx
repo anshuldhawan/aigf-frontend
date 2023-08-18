@@ -10,7 +10,10 @@ export const Profile = () => {
       <div className="main-layout d-flex flex-row h-100">
         <Navigation />
         <div className="profiles-home main-visible">
-          <Header />
+          <Header
+            title="Profile"
+            text="Welcome to your Profile, See and unlock more Profile"
+          />
           <SeeProfile />
         </div>
       </div>

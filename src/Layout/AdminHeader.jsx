@@ -2,7 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { adminLogout } from "../Redux/actions";
+import { adminLogout, updateRole } from "../Redux/actions";
 
 export const AdminHeader = () => {
   const navigate = useNavigate();
@@ -11,8 +11,9 @@ export const AdminHeader = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("adminToken");
+    dispatch(updateRole(""));
     dispatch(adminLogout());
-    navigate("/login");
+    navigate("/admin/login");
   };
   return (
     <>

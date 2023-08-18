@@ -8,6 +8,7 @@ import Lock from "../../assets/images/padlock.png";
 import Modal from "react-bootstrap/Modal";
 import { unlockBot } from "../../Redux/actions";
 import { toast } from "react-toastify";
+import Dummy from "../../assets/images/dummy.png";
 
 export const ProfilesHome = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,10 @@ export const ProfilesHome = () => {
                         className="proimg unlocked"
                       >
                         <div className="lockedImages">
-                          <img className="botImg" src={item.profileImage} />
+                          <img
+                            className="botImg"
+                            src={item.profileImage || Dummy}
+                          />
                         </div>
                       </Link>
                     </div>
