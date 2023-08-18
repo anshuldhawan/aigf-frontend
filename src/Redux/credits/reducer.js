@@ -47,6 +47,7 @@ const totalCreditReducer = (state = intialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
+        creditLists : [],
         error: payload,
       };
     case CONST.BUY_CREDIT:

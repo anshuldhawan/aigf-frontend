@@ -30,12 +30,12 @@ export const SignUp = () => {
       email: Yup.string().required("Email is required").email("Invalid email"),
       password: Yup.string()
         .required("Password is required")
-        .min(5, "Password must be  5 characters")
-        .max(5, "Password must be  5 characters"),
-      // .matches(
-      //   /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      //   "Password must contain at least 8 characters, including uppercase letters, numbers, and symbols"
-      // ),
+        .min(8, "Password must be 8 characters")
+        // .max(5, "Password must be  5 characters"),
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        "Password must contain at least 8 characters, including uppercase letters, numbers, and symbols"
+      ),
       confirmPassword: Yup.string()
         .required("Confirm Password is required")
         .oneOf([Yup.ref("password"), null], "Passwords does not match"),

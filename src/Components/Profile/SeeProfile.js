@@ -100,6 +100,7 @@ export const SeeProfile = () => {
         setShowModal(false);
         dispatch(getBot({ uid: botId }));
       } else {
+        setShowModal(false);
         toast.error(res?.message);
       }
     };
@@ -121,10 +122,9 @@ export const SeeProfile = () => {
           </div>
           <div className="prodesc">
             <h2>{botData?.name}</h2>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
+            {/* <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5> */}
             <p className="text-muted mb-3">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {botData?.description}
             </p>
             {botData?.access === "unlocked" && (
               <Link to={`/chats/${botId}`} className="btn my-btn btn-primary">
@@ -147,7 +147,7 @@ export const SeeProfile = () => {
                 <div
                   className="col-lg-3 col-md-6"
                   onClick={
-                    botData?.access === "locked" ? unlockBot : console.log("")
+                    botData?.access === "locked" ? handleBot : console.log("")
                   }
                 >
                   <div className="position-relative">
@@ -155,6 +155,7 @@ export const SeeProfile = () => {
                       className={`${botData?.access === "locked" && "proimg"}`}
                       data-toggle="modal"
                       data-target="#locked"
+                      // onClick={handleBot}
                     >
                       <img src={item.url} />
                       {botData?.access === "locked" && (

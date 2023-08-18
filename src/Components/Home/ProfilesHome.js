@@ -28,13 +28,13 @@ export const ProfilesHome = () => {
   return (
     <>
       <Container className="container-xl px-2 px-sm-3 main-all-homeprofiles">
-        <Row className="row justify-content-center">
+        <Row className="row justify-content-start">
           {BotList &&
             BotList.length > 0 &&
             BotList.map((item, idx) => {
               return (
-                <Fragment key={idx}>
-                  <Col lg={3} md={6} key={idx}>
+                <Fragment key={idx} >
+                  <Col lg={3} md={6} title={item.name} key={idx}>
                     <div className="position-relative mb-30">
                       <Link
                         to={`/profile/${item.uid}`}

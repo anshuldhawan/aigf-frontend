@@ -101,26 +101,28 @@ export const ProfileNew = () => {
         }
       };
 
-      const callback = (res) => {
-        const imgData = res?.data;
-        const imgArray = imgData.map((item, index) => {
-          return {
-            url: item?.url,
-            caption: item?.originalName,
-          };
-        });
-        const data = { ...values, images: imgArray };
-        setUploadingFiles(false);
-        dispatch(createBot(data, callback2));
-      };
+      console.log("===>>>",values)
 
-      let formData = new FormData();
-      formData.append("folderName", "test");
-      for (var i = 0; i < uploadedFiles.length; i++) {
-        formData.append("files", uploadedFiles[i]);
-      }
-      setUploadingFiles(true);
-      dispatch(uploadFile(formData, callback));
+      // const callback = (res) => {
+      //   const imgData = res?.data;
+      //   const imgArray = imgData.map((item, index) => {
+      //     return {
+      //       url: item?.url,
+      //       caption: item?.originalName,
+      //     };
+      //   });
+      // };
+      const data = { ...values, images: [...uploadedFiles] };
+      dispatch(createBot(data, callback2));
+      setUploadingFiles(false);
+
+      // let formData = new FormData();
+      // formData.append("folderName", "test");
+      // for (var i = 0; i < uploadedFiles.length; i++) {
+      //   formData.append("files", uploadedFiles[i]);
+      // }
+      // setUploadingFiles(true);
+      // dispatch(uploadFile(formData, callback));
     },
   });
 
@@ -134,7 +136,7 @@ export const ProfileNew = () => {
     const formData = new FormData();
 
     const callBack = (res) => {
-      const data = res?.data?.[0]?.url;
+      const data = res?.data?.url;
       formik.setFieldValue("profileImage", data);
     };
     formData.append("folderName", "test");

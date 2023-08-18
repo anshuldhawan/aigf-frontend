@@ -128,26 +128,26 @@ const EditProfile = () => {
         }
       };
 
-      const callback = (res) => {
-        setUploadingFiles(false);
-        const imgData = res?.data;
-        const imgArray = imgData.map((item, index) => {
-          return {
-            url: item?.url,
-            caption: item?.originalName,
-          };
-        });
-        const data = { ...values, images: imgArray, uid: uid };
+      // const callback = (res) => {
+      //   setUploadingFiles(false);
+      //   const imgData = res?.data;
+      //   const imgArray = imgData.map((item, index) => {
+      //     return {
+      //       url: item?.url,
+      //       caption: item?.originalName,
+      //     };
+      //   });
+        const data = { ...values, images: [ ...uploadedFiles] , uid: uid };
         dispatch(editBot(data, callback2));
-      };
+      // };
 
-      let formData = new FormData();
-      formData.append("folderName", "test");
-      for (var i = 0; i < uploadedFiles.length; i++) {
-        formData.append("files", uploadedFiles[i]);
-      }
+      // let formData = new FormData();
+      // formData.append("folderName", "test");
+      // for (var i = 0; i < uploadedFiles.length; i++) {
+      //   formData.append("files", uploadedFiles[i]);
+      // }
       setUploadingFiles(true);
-      dispatch(uploadFile(formData, callback));
+      // dispatch(uploadFile(formData, callback));
     },
   });
 
@@ -191,6 +191,7 @@ const EditProfile = () => {
         description: data?.description,
         role: "bot",
       });
+      setUploadedFiles([ ...data?.images ])
     }
   }, [botDetails]);
 

@@ -24,7 +24,7 @@ export const GET_BOT = "user/getBot";
 export const UNLOCK_BOT_LIST = "user/unlockBotList";
 export const UNLOCK_BOT = "user/unlockProfile";
 export const TOTAL_CREDITS = "user/getCredit";
-export const CREDIT_LIST = "admin/creditList";
+export const CREDIT_LIST = "user/creditList";
 export const BUY_CREDIT = "user/purchaseCredit";
 
 export const SEND_MESSAGE = "user/sendMessage";
