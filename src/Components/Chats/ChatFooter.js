@@ -61,7 +61,7 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
                   </g>
                 </svg>
               </Link>
-              <Button className="send-msg-btn">
+              <Button className="send-msg-btn" type="submit">
                 <div
                   className="btn btn-primary btn-icon send-icon rounded-circle text-light mb-1"
                   role="button"
