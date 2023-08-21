@@ -56,6 +56,7 @@ export const SignUp = () => {
   });
 
   const handleGoogleLogin = async (e) => {
+    e.preventDefault();
     try {
       const callback = (res) => {
         if (res.error === false) {
@@ -198,19 +199,19 @@ export const SignUp = () => {
                   </button>
                 )}
                 <div className="or-text text-center py-2 text-white">OR</div>
-                <Link to="/">
-                  <button
-                    className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
-                    onClick={handleGoogleLogin}
-                  >
-                    <img
-                      src={GoogleImg}
-                      width="18"
-                      className="align-middle mr-2 d-inline-block"
-                    />
-                    Sign in With Google
-                  </button>
-                </Link>
+                {/* <Link to="/"> */}
+                <button
+                  className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
+                  onClick={handleGoogleLogin}
+                >
+                  <img
+                    src={GoogleImg}
+                    width="18"
+                    className="align-middle mr-2 d-inline-block"
+                  />
+                  Sign in With Google
+                </button>
+                {/* </Link> */}
               </form>
 
               <p className="dont-text">

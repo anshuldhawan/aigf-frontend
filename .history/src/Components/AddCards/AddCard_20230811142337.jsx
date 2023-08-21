@@ -16,10 +16,9 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 // import { addPayment, paymentList } from "../../../Redux/actions";
 
-const stripePromise = loadStripe(
-  "pk_test_51MROZAEYe0sdvS9pSSKhmlZeXDN4DwMd0j4Te95RVrmauAllZYl8uibMPFRFUJQNSwWLPs0yl8oU2jVC1bj4htox003OZTJ2yu"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const AddCardModal = (props) => {
+  console.log(process.env.REACT_APP_STRIPE_KEY, "REACT_APP_STRIPE_KEY");
   const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [card, setCard] = useState({});

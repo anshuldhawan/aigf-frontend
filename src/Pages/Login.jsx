@@ -41,6 +41,7 @@ export const Login = () => {
   });
 
   const handleGoogleLogin = async (e) => {
+    e.preventDefault();
     try {
       const callback = (res) => {
         if (res.error === false) {
@@ -70,6 +71,7 @@ export const Login = () => {
       }
     } catch (error) {
       console.log(error, "===========error");
+
       toast.error("Authentication cancelled by user");
     }
   };

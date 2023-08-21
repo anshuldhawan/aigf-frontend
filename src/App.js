@@ -25,6 +25,10 @@ function App() {
 
     initFirebaseBackend(firebaseConfig);
   }, []);
+  console.log(
+    "process.env.REACT_APP_FIREBASE_API_KEY==>>",
+    process.env.REACT_APP_FIREBASE_API_KEY
+  );
   return (
     <>
       <ToastContainer autoClose={1500} />
