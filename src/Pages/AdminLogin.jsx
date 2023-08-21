@@ -95,12 +95,12 @@ export const AdminLogin = () => {
                     <input type="checkbox" id="html" />{" "}
                     <label for="html">Remember me</label>
                   </div>
-                  <Link
+                  {/* <Link
                     className="reset-link text-decoration-none font-size-sm"
                     to="/reset-password"
                   >
                     Reset password
-                  </Link>
+                  </Link> */}
                 </div>
                 {loading ? (
                   <button className="button-signup btn btn-primary btn-lg btn-block text-uppercase font-weight-semibold">

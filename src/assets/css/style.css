@@ -586,7 +586,7 @@ img.cmra-img {
 }
 
 .proimg {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .lockedpro i {
@@ -2111,12 +2111,87 @@ span.text-danger.error {
 .list-container-user.h-100.container {
   height: auto !important;
 }
-.chat-footer .chat-text-input input {margin: 0;}
+.chat-footer .chat-text-input input {
+  margin: 0;
+}
 .chat-text-input .mb-0.input-group {
   display: block;
 }
 
 .chat-text-input .mb-0.input-group input {
   width: 100%;
-  max-width: 100% !IMPORTANT;
+  max-width: 100% !important;
+}
+
+.prodesc h2 span {
+  font-weight: 600;
+}
+.prodesc h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.prodesc h2 span {
+  font-weight: 600;
+  font-size: 22px;
+}
+.prodesc .bio-name {
+  font-size: 26px;
+}
+.bio-wrap {
+  align-items: flex-start;
+}
+
+.welcome-page .hoemtop {
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+}
+.welcome-page .homeitems {
+  margin-top: -100px;
+  padding-bottom: 20px;
+}
+.proimg img {
+  max-width: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.proimg {
+  padding: 10px;
+}
+
+.welcome-page {
+  background-color: #26292c;
+}
+.welcome-page .homemaintext {
+  color: #02a3a3 !important;
+}
+.welcome-page .btn-primary {
+  color: #fff;
+  background-color: #02a3a3;
+  border-color: #02a3a3;
+}
+.welcome-page .my-btn {
+  padding: 15px 36px 15px 36px;
+}
+.welcome-page .mr-1 {
+  margin-right: 0.375rem !important;
+}
+.welcome-page .btn-info {
+  color: #fff;
+  background-color: #3c91ec;
+  border-color: #3c91ec;
+  margin-left: 0.375rem;
+}
+.welcome-page .btn-primary.focus,
+.welcome-page .btn-primary:focus,
+.welcome-page .btn-primary:hover {
+  color: #fff;
+  background-color: #018d8d;
+  border-color: #018d8d;
+}
+.welcome-page .btn-info.focus,
+.welcome-page .btn-info:focus,
+.welcome-page .btn-info:hover {
+  color: #fff;
+  background-color: #197de9;
+  border-color: #1677df;
 }

@@ -13,6 +13,7 @@ export const GET_BOT_DETAILS = (data) => Axios.post(API.GET_BOT_DETAILS, data);
 
 export const USER_SIGNUP = (data) => Axios.post(API.USER_SIGNUP, data);
 export const USER_LOGIN = (data) => Axios.post(API.USER_LOGIN, data);
+export const GOOGLE_LOGIN = (data) => Axios.post(API.GOOGLE_LOGIN, data);
 
 export const FORGOT_PASSWORD = (data) => Axios.post(API.FORGOT_PASSWORD, data);
 

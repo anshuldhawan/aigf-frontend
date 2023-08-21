@@ -1,6 +1,5 @@
 export const API_URL =
   "https://us-central1-aigf-fd6ab.cloudfunctions.net/app/api/v1/";
-// export const API_URL = "https://chatwebsite-api.suffescom.dev/api/v1/";
 // export const API_URL = "http://192.168.19.24:5004/api/v1/";
 // export const API_URL = "http://localhost:5004/api/v1/";
 
@@ -16,6 +15,7 @@ export const GET_BOT_DETAILS = "admin/getBot";
 // =================== USER ===================== //
 
 export const USER_SIGNUP = "user/signup";
+export const GOOGLE_LOGIN = "user/googleLogin";
 export const USER_LOGIN = "user/login";
 export const FORGOT_PASSWORD = "user/forgetPassword";
 

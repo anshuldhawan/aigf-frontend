@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import GoogleImg from "../../src/assets/images/google.png";
-import { userSignup } from "../Redux/actions";
+import { googleLogin, updateRole, userSignup } from "../Redux/actions";
 import { isEmail, isEmpty } from "validator";
 import { PASS_REGEX } from "../Services/URLS";
 import { toast } from "react-toastify";
@@ -11,6 +11,7 @@ import { useFormik } from "formik";
 import { useSelector } from "react-redux";
 import * as Yup from "yup";
 import ButtonLoader from "../Components/common/ButtonLoader";
+import { getFirebaseBackend } from "../helper/firebase";
 
 export const SignUp = () => {
   const { loading } = useSelector((s) => s.User);
@@ -32,10 +33,10 @@ export const SignUp = () => {
         .required("Password is required")
         .min(8, "Password must be 8 characters")
         // .max(5, "Password must be  5 characters"),
-      .matches(
-        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        "Password must contain at least 8 characters, including uppercase letters, numbers, and symbols"
-      ),
+        .matches(
+          /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+          "Password must contain at least 8 characters, including uppercase letters, numbers, and symbols"
+        ),
       confirmPassword: Yup.string()
         .required("Confirm Password is required")
         .oneOf([Yup.ref("password"), null], "Passwords does not match"),
@@ -53,6 +54,40 @@ export const SignUp = () => {
       dispatch(userSignup(restvalue, callBack));
     },
   });
+
+  const handleGoogleLogin = async (e) => {
+    try {
+      const callback = (res) => {
+        if (res.error === false) {
+          toast.success("Sign In Successfully");
+          dispatch(updateRole("user"));
+          navigate("/home");
+        } else {
+          toast.error(res?.message);
+        }
+      };
+
+      let getFirebse = getFirebaseBackend();
+      if (!getFirebse) {
+        return;
+      }
+
+      let googleData = await getFirebse.socialLoginUser("google");
+      if (googleData) {
+        let tokenn = JSON.stringify(googleData);
+        if (tokenn) {
+          let tokenVal = JSON.parse(tokenn);
+          let socialData = {
+            token: tokenVal?.user?.stsTokenManager?.accessToken,
+          };
+          dispatch(googleLogin(socialData, callback));
+        }
+      }
+    } catch (error) {
+      console.log(error, "===========error");
+      toast.error("Authentication cancelled by user");
+    }
+  };
 
   return (
     <>
@@ -166,7 +201,7 @@ export const SignUp = () => {
                 <Link to="/">
                   <button
                     className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
-                    type="submit"
+                    onClick={handleGoogleLogin}
                   >
                     <img
                       src={GoogleImg}

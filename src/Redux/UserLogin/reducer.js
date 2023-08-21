@@ -59,6 +59,28 @@ const UserLoginReducer = (state = intialState, { type, payload }) => {
         loading: false,
         error: payload,
       };
+
+    case CONST.GOOGLE_LOGIN:
+      return {
+        ...state,
+        isLogin: true,
+        loading: true,
+        error: null,
+      };
+    case CONST.GOOGLE_LOGIN_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loginData: payload?.data,
+        error: null,
+      };
+    case CONST.GOOGLE_LOGIN_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+
     case CONST.FORGOT_PASSWORD:
       return {
         ...state,

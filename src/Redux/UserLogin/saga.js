@@ -43,6 +43,28 @@ function* UserloginSaga({ payload, callBack }) {
   }
 }
 
+function* GoogleLoginSaga({ payload, callBack }) {
+  const response = yield call(API.GOOGLE_LOGIN, payload);
+  try {
+    if (response?.data?.status === 200) {
+      localStorage.setItem(
+        "userToken",
+        response.data?.data?.stsTokenManager?.accessToken
+      );
+      localStorage.setItem("userUid", response?.data?.data?.uid);
+      callBack && callBack(response?.data);
+      yield put(ACTION.googleLogin_Success(response.data?.data));
+    } else {
+      const error = response?.response?.data?.message;
+      toast.error(error);
+      yield put(ACTION.googleLogin_Fail(response?.data?.error));
+    }
+  } catch (error) {
+    toast.error("Invalid credentials");
+    yield put(ACTION.googleLogin_Fail(error));
+  }
+}
+
 function* forgotPasswordSaga({ payload, callBack }) {
   const response = yield call(API.FORGOT_PASSWORD, payload);
 
@@ -140,6 +162,7 @@ function* getUserProfileSaga({ payload, callBack }) {
 function* UserLoginSaga() {
   yield takeEvery(CONST.USER_SIGNUP, UserSignupSaga);
   yield takeEvery(CONST.USER_LOGIN, UserloginSaga);
+  yield takeEvery(CONST.GOOGLE_LOGIN, GoogleLoginSaga);
   yield takeEvery(CONST.FORGOT_PASSWORD, forgotPasswordSaga);
   yield takeEvery(CONST.USER_BOT_LIST, UserBotListSaga);
   yield takeEvery(CONST.GET_BOT, getBotSaga);

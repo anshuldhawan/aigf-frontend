@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import Avatr3 from "../../assets/images/avatar/3.png";
@@ -10,6 +10,12 @@ import DummyImg from "../../assets/images/avatar/dummy.png";
 import moment from "moment";
 
 export const ChatContent = ({ Messages, setMessaegState, BotData }) => {
+  useEffect(() => {
+    const chatContainer = document.querySelector(".message-day");
+    if (chatContainer) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  }, [Messages]);
   return (
     <>
       <div className="message-day">

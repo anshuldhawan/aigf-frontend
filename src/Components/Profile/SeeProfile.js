@@ -116,16 +116,31 @@ export const SeeProfile = () => {
   return (
     <>
       <Container className="container-xl main-all-homeprofiles see-profile-all container px-2 px-sm-3">
-        <div className="myprof d-block d-lg-flex">
+        <div className="myprof bio-wrap d-block d-lg-flex">
           <div className="myproimg">
             <img src={botData?.profileImage || DummyImages} />
           </div>
           <div className="prodesc">
-            <h2>{botData?.name}</h2>
+            <h2 class="bio-name">{botData?.name}</h2>
+
+            <h2>
+              <span>Age : </span>
+              {botData?.age}
+            </h2>
+            <h2>
+              <span>Country : </span> {botData?.country}
+            </h2>
+            <h2>
+              <span>Attributes : </span> {botData?.attributes}
+            </h2>
+            <h2>
+              <span>Profession : </span> {botData?.profession}
+            </h2>
+            <h2>
+              <span>Description : </span> {botData?.description}
+            </h2>
             {/* <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5> */}
-            <p className="text-muted mb-3">
-              {botData?.description}
-            </p>
+            {/* <p className="text-muted mb-3">{botData?.description}</p> */}
             {botData?.access === "unlocked" && (
               <Link to={`/chats/${botId}`} className="btn my-btn btn-primary">
                 Chat With Me

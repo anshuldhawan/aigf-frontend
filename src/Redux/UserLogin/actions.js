@@ -36,6 +36,24 @@ export const userLogin_Fail = (payload) => ({
   payload,
 });
 
+export const googleLogin = (payload, callBack) => {
+  return {
+    type: CONST.GOOGLE_LOGIN,
+    payload: payload,
+    callBack,
+  };
+};
+
+export const googleLogin_Success = (payload) => ({
+  type: CONST.GOOGLE_LOGIN_SUCCESS,
+  payload,
+});
+
+export const googleLogin_Fail = (payload) => ({
+  type: CONST.GOOGLE_LOGIN_FAIL,
+  payload,
+});
+
 export const forgotPassword = (payload, callBack) => {
   return {
     type: CONST.FORGOT_PASSWORD,

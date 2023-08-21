@@ -6,10 +6,11 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { adminLogin, updateRole } from "../Redux/AdminLogin/actions";
 import { useNavigate } from "react-router-dom";
-import { userLogin } from "../Redux/actions";
+import { googleLogin, userLogin } from "../Redux/actions";
 import ButtonLoader from "../Components/common/ButtonLoader";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { getFirebaseBackend } from "../helper/firebase";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,39 @@ export const Login = () => {
     },
   });
 
+  const handleGoogleLogin = async (e) => {
+    try {
+      const callback = (res) => {
+        if (res.error === false) {
+          toast.success("Sign In Successfully");
+          dispatch(updateRole("user"));
+          navigate("/home");
+        } else {
+          toast.error(res?.message);
+        }
+      };
+
+      let getFirebse = getFirebaseBackend();
+      if (!getFirebse) {
+        return;
+      }
+
+      let googleData = await getFirebse.socialLoginUser("google");
+      if (googleData) {
+        let tokenn = JSON.stringify(googleData);
+        if (tokenn) {
+          let tokenVal = JSON.parse(tokenn);
+          let socialData = {
+            token: tokenVal?.user?.stsTokenManager?.accessToken,
+          };
+          dispatch(googleLogin(socialData, callback));
+        }
+      }
+    } catch (error) {
+      console.log(error, "===========error");
+      toast.error("Authentication cancelled by user");
+    }
+  };
   return (
     <>
       <div className="main-layout card-bg-1 login-page">
@@ -95,12 +129,12 @@ export const Login = () => {
                     <input type="checkbox" id="html" />{" "}
                     <label for="html">Remember me</label>
                   </div>
-                  <Link
+                  {/* <Link
                     className="reset-link text-decoration-none font-size-sm"
                     to="/reset-password"
                   >
                     Reset password
-                  </Link>
+                  </Link> */}
                 </div>
                 {loading ? (
                   <button className="button-signup btn btn-primary btn-lg btn-block text-uppercase font-weight-semibold">
@@ -119,7 +153,7 @@ export const Login = () => {
                 <Link to="/">
                   <button
                     className=" google-login-btn btn btn-outline-primary btn-lg btn-block text-uppercase font-weight-semibold"
-                    type="submit"
+                    onClick={handleGoogleLogin}
                   >
                     <img
                       src={GoogleImg}

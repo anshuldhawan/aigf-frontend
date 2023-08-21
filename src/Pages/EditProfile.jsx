@@ -137,8 +137,8 @@ const EditProfile = () => {
       //       caption: item?.originalName,
       //     };
       //   });
-        const data = { ...values, images: [ ...uploadedFiles] , uid: uid };
-        dispatch(editBot(data, callback2));
+      const data = { ...values, images: [...uploadedFiles], uid: uid };
+      dispatch(editBot(data, callback2));
       // };
 
       // let formData = new FormData();
@@ -161,7 +161,8 @@ const EditProfile = () => {
     const formData = new FormData();
 
     const callBack = (res) => {
-      const data = res?.data?.[0]?.url;
+      console.log(res, "<<<<<<-=-res");
+      const data = res?.data?.url;
       formik.setFieldValue("profileImage", data);
     };
     formData.append("folderName", "test");
@@ -191,7 +192,7 @@ const EditProfile = () => {
         description: data?.description,
         role: "bot",
       });
-      setUploadedFiles([ ...data?.images ])
+      setUploadedFiles([...data?.images]);
     }
   }, [botDetails]);
 
