@@ -18,7 +18,7 @@ export const SignUp = () => {
 
   const formik = useFormik({
     initialValues: {
-      // name: "abhi",
+      // name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -43,7 +43,7 @@ export const SignUp = () => {
       const { confirmPassword, ...restvalue } = values;
       const callBack = (res) => {
         if (res.error === false) {
-          toast.success("Login Successfully");
+          toast.success("Signup Successfully");
           dispatch(updateRole("user"));
           navigate("/home");
         } else {
