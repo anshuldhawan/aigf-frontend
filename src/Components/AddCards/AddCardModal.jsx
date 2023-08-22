@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   useStripe,
   useElements,
@@ -11,9 +11,13 @@ import Modal from "react-bootstrap/Modal";
 import "./addCard.css";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { buyCredit } from "../../Redux/credits/actions";
 import { useNavigate } from "react-router-dom";
+import { getUserProfile } from "../../Redux/actions";
+import Visa from "../../assets/images/visa.jpg";
+import MasterCrd from "../../assets/images/mastercard.jpg";
+import Amex from "../../assets/images/amex.jpg";
 
 const useOptions = () => {
   const fontSize = "18px";
@@ -54,6 +58,8 @@ const AddCardModal = (props) => {
     exp_year: "",
     cvc: "",
   });
+
+  const { name } = useSelector((s) => s.User?.userProfile);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -99,6 +105,9 @@ const AddCardModal = (props) => {
   //   const cardNumberElement = elements.getElement(CardNumberElement);
   //   console.log(cardNumberElement, "cardNumber");
   // };
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
 
   return (
     <Modal
@@ -106,11 +115,14 @@ const AddCardModal = (props) => {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      className="modal-common modal-coupon demoPickerWrapper"
+      className="modal-common modal-coupon demoPickerWrapper credit-popup"
     >
       <Modal.Header closeButton onHide={props.hide}>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Add Payment Details
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          className="text-capitalize heading-credit-pop"
+        >
+          Billed under the name - {name}
         </Modal.Title>
         {/* <Button onClick={props.hide} className="close-btn">
           <svg
@@ -129,21 +141,30 @@ const AddCardModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit} className="d-flex flex-column">
-          <label>
-            Card number
-            <CardNumberElement
-              options={options}
-              // onChange={handleCardNumberChange}
-            />
-          </label>
-          <label>
-            Expiration date
-            <CardExpiryElement options={options} />
-          </label>
-          <label>
-            CVC
-            <CardCvcElement options={options} />
-          </label>
+          <div className="car-number-cvc d-flex justify-content-between gap-2">
+            <label className="crd-nmber-field">
+              Card number
+              <CardNumberElement
+                options={options}
+                // onChange={handleCardNumberChange}
+              />
+            </label>
+            <label className="cv-field">
+              CVC
+              <CardCvcElement options={options} />
+            </label>
+          </div>
+          <div className="expire-image-field d-flex align-items-center justify-content-between">
+            <label>
+              Expiration date
+              <CardExpiryElement options={options} />
+            </label>
+            <div className="images-payment-stripe d-flex flex-wrap align-items-center gap-2">
+              <img src={Visa} />
+              <img src={MasterCrd} />
+              <img src={Amex} />
+            </div>
+          </div>
           <button type="submit" disabled={!stripe} className="payBtn">
             Pay
           </button>

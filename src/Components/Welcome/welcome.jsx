@@ -15,31 +15,71 @@ const Welcome = () => {
     speed: 5000,
     autoplay: true,
     autoplaySpeed: 0,
-    centerMode: true,
+    centerMode: false,
     cssEase: "linear",
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: true,
+    variableWidth: false,
     infinite: true,
     initialSlide: 1,
     arrows: false,
     buttons: false,
     dots: false,
+    responsive: [
+      {
+        breakpoint: 1550,
+        settings: {
+          slidesToShow: 7,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 7,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
   var settingsTwo = {
     speed: 5000,
     autoplay: true,
     autoplaySpeed: 0,
-    centerMode: true,
+    centerMode: false,
     cssEase: "linear",
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: true,
+    variableWidth: false,
     infinite: true,
     initialSlide: 1,
     arrows: false,
     buttons: false,
     dots: false,
+    responsive: [
+      {
+        breakpoint: 1550,
+        settings: {
+          slidesToShow: 7,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 7,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
     rtl: true,
   };
   return (
@@ -83,134 +123,119 @@ const Welcome = () => {
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineOne} />
+                <img className="img-fluid w-100" src={CineOne} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineTwo} />
+                <img className="img-fluid w-100" src={CineTwo} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineThree} />
+                <img className="img-fluid w-100" src={CineThree} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineFour} />
+                <img className="img-fluid w-100" src={CineFour} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineFive} />
+                <img className="img-fluid w-100" src={CineOne} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineSix} />
+                <img className="img-fluid w-100" src={CineTwo} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineSeven} />
+                <img className="img-fluid w-100" src={CineThree} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineEight} />
+                <img className="img-fluid w-100" src={CineFour} />
               </div>
             </div>
           </div>
         </Slider>
+
         <Slider {...settingsTwo}>
-          <div>
+          <div className="">
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineOne} />
+                <img className="img-fluid w-100" src={CineFive} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineTwo} />
+                <img className="img-fluid w-100" src={CineSix} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineThree} />
+                <img className="img-fluid w-100" src={CineSeven} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineFour} />
+                <img className="img-fluid w-100" src={CineEight} />
+              </div>
+            </div>
+          </div>
+          <div className="">
+            <div className=" mb-30">
+              <div className="proimg">
+                <img className="img-fluid w-100" src={CineFive} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineFive} />
+                <img className="img-fluid w-100" src={CineSix} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineSix} />
+                <img className="img-fluid w-100" src={CineSeven} />
               </div>
             </div>
           </div>
           <div>
             <div className=" mb-30">
               <div className="proimg">
-                <img src={CineSeven} />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className=" mb-30">
-              <div className="proimg">
-                <img src={CineEight} />
+                <img className="img-fluid w-100" src={CineEight} />
               </div>
             </div>
           </div>
         </Slider>
-        {/* <div className="owl-carousel owl-theme">
-          <div className="item">
-            <div className="position-relative mb-30">
-              <div className="proimg">
-                <img src={CineOne} />
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="position-relative mb-30">
-              <div className="proimg">
-                <img src={CineOne} />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </section>
     </div>
   );

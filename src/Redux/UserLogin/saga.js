@@ -8,6 +8,11 @@ function* UserSignupSaga({ payload, callBack }) {
   const response = yield call(API.USER_SIGNUP, payload);
   try {
     if (response?.data?.status === 200) {
+      localStorage.setItem(
+        "userToken",
+        response.data?.data?.user?.stsTokenManager?.accessToken
+      );
+      localStorage.setItem("userUid", response?.data?.data?.user?.uid);
       callBack && callBack(response?.data);
       yield put(ACTION.userSignup_Success(response?.data));
     } else {

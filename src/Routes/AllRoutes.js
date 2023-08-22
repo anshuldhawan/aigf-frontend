@@ -22,6 +22,8 @@ import { AdminLogin } from "../Pages/AdminLogin";
 import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
 import Welcome from "../Components/Welcome/welcome";
+import TermsService from "../Pages/TermsService";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
 
 export const AllRoutes = () => {
   const adminToken = localStorage.getItem("adminToken");
@@ -35,6 +37,8 @@ export const AllRoutes = () => {
     { path: "/reset-password", component: <ResetPassword /> },
     { path: "/signup", component: <SignUp /> },
     { path: "/welcome", component: <Welcome /> },
+    { path: "/services", component: <TermsService /> },
+    { path: "/privacy-policy", component: <PrivacyPolicy /> },
   ];
 
   const userRoutes = [

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleImg from "../../src/assets/images/google.png";
 import { googleLogin, updateRole, userSignup } from "../Redux/actions";
-import { isEmail, isEmpty } from "validator";
-import { PASS_REGEX } from "../Services/URLS";
 import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import { useSelector } from "react-redux";
@@ -20,14 +18,14 @@ export const SignUp = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      // name: "abhi",
       email: "",
       password: "",
       confirmPassword: "",
       role: "user",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Name is required"),
+      // name: Yup.string().required("Name is required"),
       email: Yup.string().required("Email is required").email("Invalid email"),
       password: Yup.string()
         .required("Password is required")
@@ -44,9 +42,10 @@ export const SignUp = () => {
     onSubmit: (values, { resetForm }) => {
       const { confirmPassword, ...restvalue } = values;
       const callBack = (res) => {
-        if (res?.error === false) {
-          toast.success(res?.message);
-          navigate("/login");
+        if (res.error === false) {
+          toast.success("Login Successfully");
+          dispatch(updateRole("user"));
+          navigate("/home");
         } else {
           toast.error(res?.message);
         }
@@ -101,7 +100,7 @@ export const SignUp = () => {
                 We are Different, We Make You Different.
               </p>
               <form className="mb-3">
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label for="name" className="sr-only">
                     Name
                   </label>
@@ -120,7 +119,7 @@ export const SignUp = () => {
                       {formik.errors.name}
                     </span>
                   )}
-                </div>
+                </div> */}
 
                 <div className="form-group">
                   <label for="email" className="sr-only">
@@ -184,6 +183,14 @@ export const SignUp = () => {
                         {formik.errors.confirmPassword}
                       </span>
                     )}
+                </div>
+                <div className="small-text-check text-start">
+                  <p className="text-white">
+                    By signing up, you are agreeing to the{" "}
+                    <Link to="/services"> terms of service</Link>,
+                    <Link to="/privacy-policy"> privacy policy</Link> and that
+                    you are above the age of 18
+                  </p>
                 </div>
 
                 {loading ? (

@@ -10,12 +10,9 @@ export const MyAccount = () => {
   const { userProfile } = useSelector((s) => s.User);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const getUserDetails = () => {
-    dispatch(getUserProfile());
-  };
 
   useEffect(() => {
-    getUserDetails();
+    dispatch(getUserProfile());
   }, []);
 
   const handleLogout = () => {

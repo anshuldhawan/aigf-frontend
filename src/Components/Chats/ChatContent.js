@@ -34,18 +34,15 @@ export const ChatContent = ({ Messages, setMessaegState, BotData }) => {
                     <span>{item.message}</span>
                   </div>
                 </div>
-                <div className="message-options">
-                  <Link to="" className="avatar avatar-sm">
-                    <img
-                      alt=""
-                      src={
-                        item.direction === "sent"
-                          ? Avatr1
-                          : BotData?.profileImage || DummyImg
-                      }
-                    />
-                  </Link>
-                </div>
+                {item.direction === "sent" ? (
+                  ""
+                ) : (
+                  <div className="message-options">
+                    <Link to="" className="avatar avatar-sm">
+                      <img alt="" src={BotData?.profileImage || DummyImg} />
+                    </Link>
+                  </div>
+                )}
                 <div className="drop-time-msg d-flex align-items-center">
                   <span className="message-date">
                     {moment(item.createdAt).format("hh:mm")}
