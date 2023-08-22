@@ -1,6 +1,6 @@
-// export const API_URL =
-//   "https://us-central1-aigf-fd6ab.cloudfunctions.net/app/api/v1/";
-export const API_URL = "http://192.168.16.41:5004/api/v1/";
+export const API_URL =
+  "https://us-central1-aigf-fd6ab.cloudfunctions.net/app/api/v1/";
+// export const API_URL = "http://192.168.19.24:5004/api/v1/";
 // export const API_URL = "http://localhost:5004/api/v1/";
 
 // ================ ADMIN ==================== //
