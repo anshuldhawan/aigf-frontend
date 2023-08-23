@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   useStripe,
   useElements,
@@ -6,10 +6,8 @@ import {
   CardCvcElement,
   CardExpiryElement,
 } from "@stripe/react-stripe-js";
-import { Row, Col } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import "./addCard.css";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { buyCredit } from "../../Redux/credits/actions";
@@ -51,13 +49,6 @@ const AddCardModal = (props) => {
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
-
-  const [data, setData] = useState({
-    number: "",
-    exp_month: "",
-    exp_year: "",
-    cvc: "",
-  });
 
   const { name } = useSelector((s) => s.User?.userProfile);
 
