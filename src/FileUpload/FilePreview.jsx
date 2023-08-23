@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDropzone } from "react-dropzone";
 import { useDispatch } from "react-redux";
-import {uploadFile} from '../Redux/actions';
+import { uploadFile } from "../Redux/actions";
 
 const FileUploader = ({ uploadedFiles, setUploadedFiles, images }) => {
   const dispatch = useDispatch();
@@ -17,18 +17,17 @@ const FileUploader = ({ uploadedFiles, setUploadedFiles, images }) => {
     let formData = new FormData();
     formData.append("folderName", "test");
     for (var i = 0; i < filteredFiles.length; i++) {
-      console.log("filteredFiles[i]===>>",filteredFiles[i])
       formData.append("files", filteredFiles[i]);
     }
 
-    const callback = ( res ) =>{
-      console.log("call back response==>>>",res.data)
-      setUploadedFiles((prevFiles) => [...prevFiles, {url : res?.data?.url , caption : res?.data?.originalName }]);
-
-    }
+    const callback = (res) => {
+      setUploadedFiles((prevFiles) => [
+        ...prevFiles,
+        { url: res?.data?.url, caption: res?.data?.originalName },
+      ]);
+    };
 
     dispatch(uploadFile(formData, callback));
-
 
     // const filesWithPreview = filteredFiles.map((file) =>
     //   Object.assign(file, {
@@ -44,10 +43,6 @@ const FileUploader = ({ uploadedFiles, setUploadedFiles, images }) => {
   const removeFile = (file) => {
     setUploadedFiles((prevFiles) => prevFiles.filter((f) => f !== file));
   };
-
-  useEffect(()=>{
-    console.log("uploadedFiles===>>",uploadedFiles)
-  },[])
 
   const filePreviews = uploadedFiles.map((file) => (
     <Col lg={2} className="my-4">

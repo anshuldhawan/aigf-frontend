@@ -94,7 +94,6 @@ const AddCardModal = (props) => {
 
   // const handleCardNumberChange = (event) => {
   //   const cardNumberElement = elements.getElement(CardNumberElement);
-  //   console.log(cardNumberElement, "cardNumber");
   // };
   useEffect(() => {
     dispatch(getUserProfile());
@@ -113,7 +112,7 @@ const AddCardModal = (props) => {
           id="contained-modal-title-vcenter"
           className="text-capitalize heading-credit-pop"
         >
-          Billed under the name - {name}
+          Billed under the name - Infinite Labz
         </Modal.Title>
         {/* <Button onClick={props.hide} className="close-btn">
           <svg

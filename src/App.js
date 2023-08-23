@@ -2,7 +2,7 @@ import "./App.css";
 import "./assets/css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AllRoutes } from "./Routes/AllRoutes";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
@@ -25,10 +25,7 @@ function App() {
 
     initFirebaseBackend(firebaseConfig);
   }, []);
-  console.log(
-    "process.env.REACT_APP_FIREBASE_API_KEY==>>",
-    process.env.REACT_APP_FIREBASE_API_KEY
-  );
+
   return (
     <>
       <ToastContainer autoClose={1500} />

@@ -161,7 +161,6 @@ const EditProfile = () => {
     const formData = new FormData();
 
     const callBack = (res) => {
-      console.log(res, "<<<<<<-=-res");
       const data = res?.data?.url;
       formik.setFieldValue("profileImage", data);
     };
@@ -201,8 +200,6 @@ const EditProfile = () => {
       getBotDetailss();
     }
   }, []);
-
-  console.log(botDetails?.data);
 
   return (
     <>

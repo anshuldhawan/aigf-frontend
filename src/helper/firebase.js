@@ -1,8 +1,8 @@
 import firebase from "firebase/app";
-
 // Add the Firebase products that you want to use
 import "firebase/messaging";
 import "firebase/auth";
+import "firebase/analytics";
 
 class FirebaseAuthBackend {
   constructor(firebaseConfig) {
@@ -18,6 +18,14 @@ class FirebaseAuthBackend {
       messaging.onMessage((payload) => {
         resolve(payload);
       });
+    });
+  };
+
+  onAnalytics = () => {
+    firebase.analytics().logEvent("page_view", {
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+      page_title: document.title,
     });
   };
 

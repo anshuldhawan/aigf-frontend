@@ -20,9 +20,9 @@ function* unlockBotListSaga({ payload, callBack }) {
 
 function* unlockBotSaga({ payload, callBack }) {
   const response = yield call(API.UNLOCK_BOT, payload);
+  callBack && callBack(response);
   try {
     if (response?.status === 200) {
-      callBack && callBack(response.data);
       yield put(ACTION.unlockBot_Success(response?.data));
     } else {
       const error = response?.response?.data?.message;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Profile1 from "../../assets/images/static/static-1.jpg";
 import Profile2 from "../../assets/images/static/static-2.jpg";
 import Profile4 from "../../assets/images/static/static-4.jpg";
@@ -83,6 +83,7 @@ const ConfirmPopup = (props) => {
 
 export const SeeProfile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { botId } = useParams();
   const [showModal, setShowModal] = useState(false);
   const botData = useSelector((s) => s?.User?.getBot?.data);
@@ -95,13 +96,21 @@ export const SeeProfile = () => {
 
   const unlockBots = () => {
     const callback = (res) => {
-      if (res?.error === false) {
-        toast.success(res?.message);
+      if (res?.data?.error === false) {
+        toast.success(res?.data?.message);
         setShowModal(false);
         dispatch(getBot({ uid: botId }));
       } else {
         setShowModal(false);
-        toast.error(res?.message);
+        toast.error(res?.data?.message);
+      }
+      if (
+        res.response &&
+        res?.response?.data?.message === "Insufficient Credit Balance!"
+      ) {
+        setTimeout(() => {
+          navigate("/buy-credits");
+        }, 200);
       }
     };
     const data = {

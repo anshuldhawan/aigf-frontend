@@ -70,8 +70,6 @@ export const Login = () => {
         }
       }
     } catch (error) {
-      console.log(error, "===========error");
-
       toast.error("Authentication cancelled by user");
     }
   };

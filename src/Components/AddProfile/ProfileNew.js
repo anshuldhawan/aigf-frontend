@@ -101,8 +101,6 @@ export const ProfileNew = () => {
         }
       };
 
-      console.log("===>>>",values)
-
       // const callback = (res) => {
       //   const imgData = res?.data;
       //   const imgArray = imgData.map((item, index) => {

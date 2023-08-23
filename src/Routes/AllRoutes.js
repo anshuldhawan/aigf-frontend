@@ -29,7 +29,6 @@ export const AllRoutes = () => {
   const adminToken = localStorage.getItem("adminToken");
   const userToken = localStorage.getItem("userToken");
   const { role } = useSelector((s) => s.Admin);
-  console.log("token ====>", userToken, adminToken);
 
   const publicRoutes = [
     { path: "/login", component: <Login /> },

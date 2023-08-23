@@ -10,7 +10,6 @@ export const SidebarChats = ({ show, Setshow, botId, setBotId }) => {
   const dispatch = useDispatch();
   const { unlockBots, loading } = useSelector((s) => s.Bots);
 
-  console.log(unlockBots, "unlockBotsunlockBots");
   useEffect(() => {
     dispatch(unlockBotList());
   }, [dispatch]);
