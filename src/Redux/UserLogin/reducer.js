@@ -125,7 +125,7 @@ const UserLoginReducer = (state = intialState, { type, payload }) => {
     case CONST.USER_BOT_LIST_FAIL:
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: payload,
       };
 
@@ -146,7 +146,7 @@ const UserLoginReducer = (state = intialState, { type, payload }) => {
     case CONST.GET_BOT_FAIL:
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: payload,
       };
 
@@ -188,7 +188,7 @@ const UserLoginReducer = (state = intialState, { type, payload }) => {
     case CONST.SEND_MESSAGE_FAIL:
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: payload,
       };
 
@@ -209,7 +209,7 @@ const UserLoginReducer = (state = intialState, { type, payload }) => {
     case CONST.MESSAGE_HISTORY_FAIL:
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: payload,
       };
     case CONST.GET_USER_PROFILE:

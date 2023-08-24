@@ -3,8 +3,9 @@ import * as CONST from "./actionTypes";
 import * as ACTION from "./actions";
 import * as API from "../../Services/ApiCalls";
 import { toast } from "react-toastify";
+import Axios from "../../Services/Axios";
 
-function* UserSignupSaga({ payload, callBack }) {
+function* UserSignupSaga({ payload, callBack, setLoading }) {
   const response = yield call(API.USER_SIGNUP, payload);
   try {
     if (response?.data?.status === 200) {
@@ -14,18 +15,21 @@ function* UserSignupSaga({ payload, callBack }) {
       );
       localStorage.setItem("userUid", response?.data?.data?.user?.uid);
       callBack && callBack(response?.data);
+      setLoading(false);
       yield put(ACTION.userSignup_Success(response?.data));
     } else {
       const error = response?.response?.data?.message;
       toast.error(error);
+      setLoading(false);
       yield put(ACTION.userSignup_Fail(response?.data?.error));
     }
   } catch (error) {
+    setLoading(false);
     yield put(ACTION.userSignup_Fail(response?.data?.error));
   }
 }
 
-function* UserloginSaga({ payload, callBack }) {
+function* UserloginSaga({ payload, callBack, setLoading }) {
   const response = yield call(API.USER_LOGIN, payload);
 
   try {
@@ -36,14 +40,17 @@ function* UserloginSaga({ payload, callBack }) {
       );
       localStorage.setItem("userUid", response?.data?.data?.uid);
       callBack && callBack(response?.data);
+      setLoading(false);
       yield put(ACTION.userLogin_Success(response.data?.data));
     } else {
       const error = response?.response?.data?.message;
       toast.error(error);
+      setLoading(false);
       yield put(ACTION.userLogin_Fail(response?.data?.error));
     }
   } catch (error) {
     toast.error("Invalid credentials");
+    setLoading(false);
     yield put(ACTION.userLogin_Fail(error));
   }
 }
@@ -89,7 +96,7 @@ function* forgotPasswordSaga({ payload, callBack }) {
 
 function* UserBotListSaga({ payload, callBack }) {
   const response = yield call(API.USER_BOT_LIST, payload);
-
+  console.log(response, "response saga bot list");
   try {
     if (response?.status === 200) {
       yield put(ACTION.userBotList_Success(response.data));
@@ -98,6 +105,13 @@ function* UserBotListSaga({ payload, callBack }) {
       yield put(ACTION.userBotList_Fail(response.data.error));
     }
   } catch (error) {
+    if (
+      response?.response &&
+      response?.response?.data?.message === "Token expired"
+    ) {
+      Axios.LogoutUser(response?.response?.data);
+    }
+    console.log(response?.response?.data?.message, "messsaaaaggeee");
     yield put(ACTION.userBotList_Fail(response.data.error));
   }
 }

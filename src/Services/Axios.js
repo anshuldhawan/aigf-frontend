@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API_URL, API_VERSION, API_TOKEN } from "./URLS";
+import { toast } from "react-toastify";
 
 const adminToken = localStorage.getItem("adminToken");
 const userToken = localStorage.getItem("userToken");
@@ -29,14 +30,12 @@ class Axios {
     };
   };
 
-  LogoutUser = (url) => {
-    if (url.response !== undefined && url.response.status === 401) {
-      // console.log(url.response.status, "401 Unauthorized Api Call");
-      localStorage.clear();
-      window.location.replace("/");
-    } else {
-      // console.log(url, "401 Unauthorized Api Call");
-    }
+  LogoutUser = (res) => {
+    toast.error(res.message);
+    localStorage.clear();
+    setTimeout(() => {
+      window.location.replace("/login");
+    }, 500);
   };
 
   get = (url, options = {}) => {

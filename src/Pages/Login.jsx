@@ -15,7 +15,8 @@ import { getFirebaseBackend } from "../helper/firebase";
 export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading } = useSelector((s) => s.User);
+  // const { loading } = useSelector((s) => s.User);
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -27,6 +28,7 @@ export const Login = () => {
       password: Yup.string().required("Password is required"),
     }),
     onSubmit: (values, { resetForm }) => {
+      setLoading(true);
       const callback = (res) => {
         if (res.error === false) {
           toast.success("Login Successfully");
@@ -36,7 +38,7 @@ export const Login = () => {
           toast.error(res?.message);
         }
       };
-      dispatch(userLogin(values, callback));
+      dispatch(userLogin(values, callback, setLoading));
     },
   });
 

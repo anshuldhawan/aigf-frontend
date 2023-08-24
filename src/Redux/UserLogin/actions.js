@@ -1,10 +1,11 @@
 import * as CONST from "./actionTypes";
 
-export const userSignup = (payload, callBack) => {
+export const userSignup = (payload, callBack, setLoading) => {
   return {
     type: CONST.USER_SIGNUP,
     payload: payload,
     callBack,
+    setLoading,
   };
 };
 
@@ -18,11 +19,13 @@ export const userSignup_Fail = (payload) => ({
   payload,
 });
 
-export const userLogin = (payload, callBack) => {
+export const userLogin = (payload, callBack, setLoading) => {
+  console.log(callBack, "action callback");
   return {
     type: CONST.USER_LOGIN,
     payload: payload,
     callBack,
+    setLoading,
   };
 };
 

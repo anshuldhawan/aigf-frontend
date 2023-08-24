@@ -32,14 +32,14 @@ export const MyAccount = () => {
 
           <Container className="container-xl px-2 px-sm-3 my-account-page">
             <div className="myprof d-block pt-4 pt-md-5 pb-4 pb-md-5">
-              <div className="row mb-3 mb-md-2 text-white">
+              {/* <div className="row mb-3 mb-md-2 text-white">
                 <div className="col-md-6 text-md-right mb-1 mb-md-0">
                   Full Name :
                 </div>
                 <div className="col-md-6 font-weight-semibold">
                   {userProfile?.name}
                 </div>
-              </div>
+              </div> */}
               <div className="row mb-3 mb-md-2 text-white">
                 <div className="col-md-6 text-md-right mb-1 mb-md-0">
                   Email Address :

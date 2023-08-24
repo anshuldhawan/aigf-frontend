@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,7 +12,8 @@ import ButtonLoader from "../Components/common/ButtonLoader";
 import { getFirebaseBackend } from "../helper/firebase";
 
 export const SignUp = () => {
-  const { loading } = useSelector((s) => s.User);
+  // const { loading } = useSelector((s) => s.User);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ export const SignUp = () => {
         .oneOf([Yup.ref("password"), null], "Passwords does not match"),
     }),
     onSubmit: (values, { resetForm }) => {
+      setLoading(true);
       const { confirmPassword, ...restvalue } = values;
       const callBack = (res) => {
         if (res.error === false) {
@@ -50,7 +52,7 @@ export const SignUp = () => {
           toast.error(res?.message);
         }
       };
-      dispatch(userSignup(restvalue, callBack));
+      dispatch(userSignup(restvalue, callBack, setLoading));
     },
   });
 
