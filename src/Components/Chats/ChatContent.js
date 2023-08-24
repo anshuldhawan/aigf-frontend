@@ -19,9 +19,9 @@ export const ChatContent = ({ Messages, setMessaegState, BotData }) => {
   return (
     <>
       <div className="message-day">
-        <div className="message-divider sticky-top pb-2" data-label="Yesterday">
+        {/* <div className="message-divider sticky-top pb-2" data-label="Yesterday">
           Yesterday
-        </div>
+        </div> */}
         {Messages &&
           Messages.length > 0 &&
           Messages.map((item) => {

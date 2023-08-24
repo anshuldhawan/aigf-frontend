@@ -5,13 +5,18 @@ import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { messageHistory, sendMessage } from "../../Redux/actions";
+import ButtonLoader from "../../Components/common/ButtonLoader";
+
 export const ChatFooter = ({ setMessaegState, BotData }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
+  const [ sending , isSending ] = useState(false)
   const handleSubmit = (e) => {
+    isSending(true)
     e.preventDefault();
     const callBack = (res) => {
+      isSending(false)
       setText("");
       dispatch(messageHistory({ uid: BotData?.uid }));
     };
@@ -61,12 +66,16 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
                   </g>
                 </svg>
               </Link>
-              <Button className="send-msg-btn" type="submit">
+              {/* <button className="button-signup btn btn-primary btn-lg btn-block text-uppercase font-weight-semibold">
+                    <ButtonLoader color={"text-light"} />
+                  </button> */}
+              <Button className="send-msg-btn" type="submit" disabled={ sending || !text }>
                 <div
                   className="btn btn-primary btn-icon send-icon rounded-circle text-light mb-1"
                   role="button"
                 >
-                  <i className="far fa-paper-plane"></i>
+                 {sending ? <ButtonLoader color={"text-light"} />
+                  : <i className="far fa-paper-plane"></i>}
                 </div>
               </Button>
             </div>
