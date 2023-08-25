@@ -259,7 +259,7 @@ svg.MuiSvgIcon-root.MuiSelect-icon {
   border-radius: 0.25rem;
   margin-bottom: 0px;
   font-family: "Inter";
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .main-layout.card-bg-1.login-page {
@@ -2450,4 +2450,10 @@ span.text-danger.error {
 
 .images-stripe img {
   width: 50px;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .message-day {
+    height: calc(100vh - 210px);
+  }
 }

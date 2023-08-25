@@ -126,7 +126,7 @@ export const Login = () => {
                     </span>
                   )}
                 </div>
-                <div className="form-group d-flex justify-content-between checkbocx-login">
+                <div className="form-group d-none justify-content-between checkbocx-login">
                   <div class="form-group">
                     <input type="checkbox" id="html" />{" "}
                     <label for="html">Remember me</label>
