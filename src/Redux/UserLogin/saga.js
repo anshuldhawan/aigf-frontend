@@ -132,18 +132,21 @@ function* getBotSaga({ payload, callBack }) {
   }
 }
 
-function* sendMessageSaga({ payload, callBack }) {
+function* sendMessageSaga({ payload, callBack, isSending }) {
   const response = yield call(API.SEND_MESSAGE, payload);
   try {
     if (response?.data?.status === 200) {
       callBack && callBack(response.data);
+      isSending(false);
       yield put(ACTION.sendMessage_Success(response?.data));
     } else {
       const error = response?.response?.data?.message;
       toast.error(error);
+      isSending(false);
       yield put(ACTION.sendMessage_Fail(response?.data?.error));
     }
   } catch (error) {
+    isSending(false);
     yield put(ACTION.sendMessage_Fail(response?.data?.error));
   }
 }

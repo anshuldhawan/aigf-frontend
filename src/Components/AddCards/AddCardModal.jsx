@@ -16,6 +16,8 @@ import { getUserProfile } from "../../Redux/actions";
 import Visa from "../../assets/images/visa.jpg";
 import MasterCrd from "../../assets/images/mastercard.jpg";
 import Amex from "../../assets/images/amex.jpg";
+import LockImg from "../../assets/images/lockimg.png";
+import StripeBtn from "../../assets/images/stripe-btn.png";
 
 const useOptions = () => {
   const fontSize = "18px";
@@ -49,8 +51,6 @@ const AddCardModal = (props) => {
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
-
-  const { name } = useSelector((s) => s.User?.userProfile);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -149,12 +149,22 @@ const AddCardModal = (props) => {
               Expiration date
               <CardExpiryElement options={options} />
             </label>
-            <div className="images-payment-stripe d-flex flex-wrap align-items-center gap-2">
-              <img src={Visa} />
-              <img src={MasterCrd} />
-              <img src={Amex} />
+            <div className="images-payment-stripe ms-2">
+              <div className="powered-text-stripe d-grid">
+                <div className="d-flex align-items-center w-100">
+                  <img src={LockImg} className="img-fluid" /> Guaranteed{" "}
+                  <strong>safe & secure</strong>checkout
+                  <img src={StripeBtn} className="img-fluid" />
+                </div>
+              </div>
+              <div className="images-stripe d-flex flex-wrap align-items-center gap-2">
+                <img src={Visa} />
+                <img src={MasterCrd} />
+                <img src={Amex} />
+              </div>
             </div>
           </div>
+
           <button type="submit" disabled={!stripe} className="payBtn">
             Pay
           </button>

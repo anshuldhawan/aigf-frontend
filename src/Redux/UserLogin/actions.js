@@ -134,11 +134,12 @@ export const getBot_Fail = (payload) => ({
 //   payload,
 // });
 
-export const sendMessage = (payload, callBack) => {
+export const sendMessage = (payload, callBack, isSending) => {
   return {
     type: CONST.SEND_MESSAGE,
     payload: payload,
     callBack,
+    isSending,
   };
 };
 

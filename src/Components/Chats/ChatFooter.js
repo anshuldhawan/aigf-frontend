@@ -11,16 +11,18 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
-  const [ sending , isSending ] = useState(false)
+  const [sending, isSending] = useState(false);
   const handleSubmit = (e) => {
-    isSending(true)
+    isSending(true);
     e.preventDefault();
     const callBack = (res) => {
-      isSending(false)
+      // isSending(false);
       setText("");
       dispatch(messageHistory({ uid: BotData?.uid }));
     };
-    dispatch(sendMessage({ uid: BotData?.uid, message: text }, callBack));
+    dispatch(
+      sendMessage({ uid: BotData?.uid, message: text }, callBack, isSending)
+    );
   };
 
   return (
@@ -69,13 +71,20 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
               {/* <button className="button-signup btn btn-primary btn-lg btn-block text-uppercase font-weight-semibold">
                     <ButtonLoader color={"text-light"} />
                   </button> */}
-              <Button className="send-msg-btn" type="submit" disabled={ sending || !text }>
+              <Button
+                className="send-msg-btn"
+                type="submit"
+                disabled={sending || !text}
+              >
                 <div
                   className="btn btn-primary btn-icon send-icon rounded-circle text-light mb-1"
                   role="button"
                 >
-                 {sending ? <ButtonLoader color={"text-light"} />
-                  : <i className="far fa-paper-plane"></i>}
+                  {sending ? (
+                    <ButtonLoader color={"text-light"} />
+                  ) : (
+                    <i className="far fa-paper-plane"></i>
+                  )}
                 </div>
               </Button>
             </div>

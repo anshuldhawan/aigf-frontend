@@ -2097,7 +2097,7 @@ button.btn.btn-info:hover {
     max-width: 100%;
   }
   html .heading-credit-pop {
-    font-size: 17px !important;
+    font-size: 16px !important;
   }
   .credit-popup .modal-body {
     padding: 0px 20px 30px 20px;
@@ -2201,6 +2201,28 @@ button.btn.btn-info:hover {
 
   .pricing .cards .card.active {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .images-payment-stripe.ms-2 {
+    margin: 0 !important;
+    margin-bottom: 10px !important;
+    padding: 14px !important;
+  }
+
+  .powered-text-stripe > div > img:nth-of-type(1) {
+    width: 14px !important;
+    margin-right: 5px !important;
+    top: -3px !important;
+  }
+
+  .powered-text-stripe > div > img:nth-of-type(2) {
+    width: 62px !important;
+  }
+
+  .powered-text-stripe > div {
+    font-size: 11px !important;
   }
 }
 
@@ -2388,4 +2410,44 @@ span.text-danger.error {
 
 .credit-popup button.btn-close:hover {
   background-color: transparent;
+}
+
+.powered-text-stripe > div > img:nth-of-type(1) {
+  width: 20px;
+  margin-right: 10px;
+  position: relative;
+  top: -4px;
+}
+
+.powered-text-stripe > div > img:nth-of-type(2) {
+  width: 94px;
+  margin-left: 15px;
+}
+
+.powered-text-stripe > div {
+  color: #33354c;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.powered-text-stripe.d-grid {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 16px;
+}
+
+.powered-text-stripe > div strong {
+  padding: 0 3px;
+}
+
+.images-payment-stripe {
+  background: #e1e2e5;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.images-stripe img {
+  width: 50px;
 }
