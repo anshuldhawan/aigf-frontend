@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Profile1 from "../../assets/images/static/static-1.jpg";
-import Profile2 from "../../assets/images/static/static-2.jpg";
-import Profile4 from "../../assets/images/static/static-4.jpg";
-import Profile5 from "../../assets/images/static/static-5.jpg";
-import Profile7 from "../../assets/images/static/static-7.jpg";
-import Profile8 from "../../assets/images/static/static-8.jpg";
-import Profile9 from "../../assets/images/static/static-9.jpg";
-import Profile10 from "../../assets/images/static/static-10.jpg";
+// import Profile1 from "../../assets/images/static/static-1.jpg";
+// import Profile2 from "../../assets/images/static/static-2.jpg";
+// import Profile4 from "../../assets/images/static/static-4.jpg";
+// import Profile5 from "../../assets/images/static/static-5.jpg";
+// import Profile7 from "../../assets/images/static/static-7.jpg";
+// import Profile8 from "../../assets/images/static/static-8.jpg";
+// import Profile9 from "../../assets/images/static/static-9.jpg";
+// import Profile10 from "../../assets/images/static/static-10.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getBot, unlockBot } from "../../Redux/actions";
 import Modal from "react-bootstrap/Modal";
@@ -16,7 +16,7 @@ import DummyImages from "../../assets/images/dummy.png";
 import { toast } from "react-toastify";
 
 const ConfirmPopup = (props) => {
-  const { show, hideModal, setConfirmDelete, unlockBots } = props;
+  const { show, hideModal, unlockBots } = props;
 
   return (
     <Modal show={show} onHide={hideModal} className="locked-popup">
@@ -163,7 +163,7 @@ export const SeeProfile = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row related-image-profile">
           {botData &&
             botData?.images?.length > 0 &&
             botData?.images.map((item) => {

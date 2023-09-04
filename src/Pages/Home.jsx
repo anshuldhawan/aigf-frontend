@@ -9,10 +9,7 @@ export const Home = () => {
       <div className="main-layout d-flex flex-row h-100">
         <Navigation />
         <div className="profiles-home main-visible">
-          <Header
-            title="Home"
-            text="Welcome to AI Girlfriend Chat Dashboard !"
-          />
+          <Header title="Home" text="" />
           <ProfilesHome />
         </div>
       </div>

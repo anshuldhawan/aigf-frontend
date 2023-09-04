@@ -97,9 +97,7 @@ export const SignUp = () => {
           <Row className="row no-gutters text-center align-items-center justify-content-center min-vh-100">
             <Col md={6} lg={5} xl={4} className="col-12">
               <h1 className="font-weight-bold">Sign Up</h1>
-              <p className="text-dark mb-3">
-                We are Different, We Make You Different.
-              </p>
+              <p className="text-dark mb-3">Hundreds of girls, eager to chat</p>
               <form className="mb-3">
                 {/* <div className="form-group">
                   <label for="name" className="sr-only">

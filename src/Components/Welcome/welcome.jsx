@@ -89,13 +89,11 @@ const Welcome = () => {
           <div className="row justify-content-center text-center">
             <div className="col-xxl-7 col-xl-8 col-lg-9 col-md-10">
               <h1 className="font-weight-semibold text-primary mb-3 homemaintext">
-                Think Different, Think Services
+                Chatting Universe
               </h1>
 
               <p className="text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.
+                The place to be for the most intimate and deep conversations
               </p>
 
               <div className="text-center mt-3">

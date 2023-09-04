@@ -3,6 +3,7 @@ export const API_URL =
 // export const API_URL = "http://192.168.19.24:5004/api/v1/";
 // export const API_URL = "http://localhost:5004/api/v1/";
 // export const API_URL = "http://192.168.16.12:5004/api/v1";
+// export const API_URL = "http://192.168.16.41:5004/api/v1";
 
 // ================ ADMIN ==================== //
 export const ADMIN_LOGIN = "admin/login";

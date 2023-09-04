@@ -2405,7 +2405,6 @@ span.text-danger.error {
 
 .welcome-page .proimg img {
   /* max-width: 167px; */
-  aspect-ratio: 1/1;
 }
 
 .credit-popup button.btn-close:hover {
@@ -2451,7 +2450,43 @@ span.text-danger.error {
 .images-stripe img {
   width: 50px;
 }
+/* .main-all-homeprofiles .lockedImages img {
+  transform: scale(2.1);
+}
+.main-all-homeprofiles .lockedImages {
+  border-radius: 10px;
+}
+.collections-all a.proimg.unlocked {
+  overflow: hidden;
+  border-radius: 10px;
+  display: block;
+}
+.myprof.bio-wrap .myproimg,
+.related-image-profile .false {
+  overflow: hidden;
+  border-radius: 10px;
+}
+.welcome-page .proimg {
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
 
+.welcome-page .proimg img {
+  transform: scale(2);
+  width: 100% !important;
+  height: 100% !important;
+}
+.myprof.bio-wrap .myproimg img,
+.related-image-profile .false img {
+  transform: scale(2.1);
+}
+.collections-all a.proimg.unlocked img {
+  transform: scale(2.1);
+} */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .message-day {
     height: calc(100vh - 210px);

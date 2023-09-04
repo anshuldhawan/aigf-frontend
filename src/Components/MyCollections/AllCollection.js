@@ -32,7 +32,7 @@ export const AllCollection = () => {
 
   return (
     <>
-      <Container className="container-xl px-2 px-sm-3 main-all-homeprofiles">
+      <Container className="container-xl px-2 px-sm-3 main-all-homeprofiles collections-all">
         <Row className="row justify-content-start">
           {unlockBots?.map((item, index) => {
             const img = item?.images?.[0]?.url;
