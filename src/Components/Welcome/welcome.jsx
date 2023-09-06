@@ -88,7 +88,7 @@ const Welcome = () => {
   ReactGA.send({
     hitType: "pageview",
     page: "/welcome",
-    title: "Custom Title",
+    title: "Welcome Page",
   });
   return (
     <>

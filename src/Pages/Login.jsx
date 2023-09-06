@@ -18,9 +18,8 @@ export const Login = () => {
   const navigate = useNavigate();
   // const { loading } = useSelector((s) => s.User);
   const [loading, setLoading] = useState(false);
-  
-  ReactGA.send({ hitType: "pageview", page: "/login" , title: "Custom Title" });
 
+  ReactGA.send({ hitType: "pageview", page: "/login", title: "Login Page" });
 
   const formik = useFormik({
     initialValues: {

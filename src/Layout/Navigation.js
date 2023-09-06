@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { useSelector } from "react-redux";
-import ReactGA from "react-ga4"
+import ReactGA from "react-ga4";
 export const Navigation = () => {
   const adminToken = localStorage.getItem("adminToken");
   const { role } = useSelector((s) => s.Admin);
   const path = window.location.pathname;
 
-  console.log("sending analytics==>>", path);
- useEffect(()=>{
-  ReactGA.send({ hitType: "pageview", page: path , title: "Custom Title" });
- },[path])
-
+  //   console.log("sending analytics==>>", path);
+  //  useEffect(()=>{
+  //   ReactGA.send({ hitType: "pageview", page: path , title: "Custom Title" });
+  //  },[path])
 
   return (
     <>

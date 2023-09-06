@@ -18,8 +18,7 @@ export const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  ReactGA.send({ hitType: "pageview", page: "/signup" , title: "Custom Title" });
-
+  ReactGA.send({ hitType: "pageview", page: "/signup", title: "Signup Page" });
 
   const formik = useFormik({
     initialValues: {

@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/actions";
 import Footer from "../Layout/footer";
+import ReactGA from "react-ga4";
 
 export const MyAccount = () => {
   const { userProfile } = useSelector((s) => s.User);
@@ -20,6 +21,12 @@ export const MyAccount = () => {
     localStorage.clear();
     navigate("/login");
   };
+
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/my-account",
+    title: "My Account",
+  });
 
   return (
     <>
