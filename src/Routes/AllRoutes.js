@@ -24,6 +24,7 @@ import { useSelector } from "react-redux";
 import Welcome from "../Components/Welcome/welcome";
 import TermsService from "../Pages/TermsService";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import About from "../Pages/about";
 
 export const AllRoutes = () => {
   const adminToken = localStorage.getItem("adminToken");
@@ -38,6 +39,7 @@ export const AllRoutes = () => {
     { path: "/welcome", component: <Welcome /> },
     { path: "/services", component: <TermsService /> },
     { path: "/privacy-policy", component: <PrivacyPolicy /> },
+    { path: "/about", component: <About /> },
   ];
 
   const userRoutes = [
@@ -49,7 +51,7 @@ export const AllRoutes = () => {
     { path: "/buy-credits", component: <BuyCredits /> },
     { path: "/profile/:botId", component: <Profile /> },
     { path: "/chats/:botId", component: <Chats /> },
-    { path: "/chats", component: <Chats /> }
+    { path: "/chats", component: <Chats /> },
   ];
 
   const adminRoutes = [

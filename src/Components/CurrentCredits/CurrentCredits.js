@@ -17,7 +17,7 @@ export const CurrentCredits = () => {
 
   return (
     <>
-      <Container>
+      <Container className="total-credit">
         <Row className="justify-content-center">
           <Col
             lg={6}

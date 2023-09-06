@@ -3,61 +3,64 @@ import React from "react";
 const PrivacyPolicy = () => {
   return (
     <div className="termns-main h-100">
-      <h2 className="text-center pt-5 m-0">Privacy Policy Page</h2>
+      <h2 className="text-center pt-5 m-0">Privacy Policy</h2>
       <div className="rte pb-5">
-        <h4>What is Lorem Ipsum?</h4>
+        <h4>Effective Date: September 5, 2023 </h4>
         <p>
-          {" "}
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
+          This privacy policy describes how Website Name ("we", "us" or "our")
+          collects, uses, and shares personal information of users ("you" or
+          "your") on our website aigirlfriendchat.net (the "Site"). This privacy
+          policy applies only to information we collect at the Site and does not
+          apply to our collection of information from other sources.
         </p>
-        <h4>Why do we use it?</h4>
+        <h4>Information We Collect</h4>
         <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like). Where
-          does it come from? Contrary to popular belief, Lorem Ipsum is not
-          simply random text. It has roots in a piece of classical Latin
-          literature from 45 BC, making it over 2000 years old. Richard
-          McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-          looked up one of the more obscure Latin words, consectetur, from a
-          Lorem Ipsum passage, and going through the cites of the word in
-          classical literature, discovered the undoubtable source. Lorem Ipsum
-          comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-          Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
-          This book is a treatise on the theory of ethics, very popular during
-          the Renaissance.
-          <br />
-          <br />
-          The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes
-          from a line in section 1.10.32. The standard chunk of Lorem Ipsum used
-          since the 1500s is reproduced below for those interested. Sections
-          1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
-          also reproduced in their exact original form, accompanied by English
-          versions from the 1914 translation by H. Rackham. Where can I get
-          some? There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text. All
-          the Lorem Ipsum generators on the Internet tend to repeat predefined
-          chunks as necessary, making this the first true generator on the
-          Internet. It uses a dictionary of over 200 Latin words, combined with
-          a handful of model sentence structures, to generate Lorem Ipsum which
-          looks reasonable. The generated Lorem Ipsum is therefore always free
-          from repetition, injected humour, or non-characteristic words etc.
+          We don’t collect any personal information (such as name, email
+          address, etc.) that you voluntarily provide to us through the Site. We
+          do not collect any personal information from you unless you provide it
+          to us voluntarily.
+        </p>
+        <p>
+          The personal information we collect depends on how you use the Site.
+          We collect information directly from you when you register for an
+          account, submit information through the Site, interact with other
+          users of the Site, post user content, or complete a purchase.
+        </p>
+        <h4>How We Use Information</h4>
+        <p>
+          We only use your personal information to provide, maintain, and
+          improve the Site and our services. We do not share your personal
+          information with any third parties.
+        </p>
+        <p>
+          We use cookies to analyze how the Site is accessed, used, or
+          performing in order to maintain, operate, and continually improve the
+          Site.
+        </p>
+        <h4>Data Storage</h4>
+        <p>
+          All data collected through the Site is stored and processed on Google
+          Cloud using industry-standard security measures. We do not transfer
+          your personal information to any third parties.
+        </p>
+        <h4>Your Rights</h4>
+        <p>
+          You have the right to access, correct, or delete the personal
+          information we have about you. You can request to exercise this right
+          by emailing us at support@aigirlfriendchat.net
+        </p>
+        <h4>Changes To This Privacy Policy</h4>
+        <p>
+          We reserve the right to modify this privacy policy at any time. If we
+          decide to change our privacy policy, we will post those changes on
+          this page so that you are always aware of what information we collect,
+          how we use it, and under what circumstances we disclose it.{" "}
+        </p>
+        <h4>Contact Us</h4>
+        <p>
+          If you have any questions about this privacy policy or concerns about
+          the way we process your personal information, please email
+          privacy@example.com.
         </p>
       </div>
     </div>

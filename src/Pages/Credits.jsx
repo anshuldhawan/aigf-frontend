@@ -2,6 +2,7 @@ import React from "react";
 import { CurrentCredits } from "../Components/CurrentCredits/CurrentCredits";
 import { Header } from "../Layout/Header";
 import { Navigation } from "../Layout/Navigation";
+import Footer from "../Layout/footer";
 
 export const Credits = () => {
   return (
@@ -14,6 +15,7 @@ export const Credits = () => {
             text="Check your total Credits & you can buy Credit if needed"
           />
           <CurrentCredits />
+          {/* <Footer /> */}
         </div>
       </div>
     </>

@@ -2,6 +2,7 @@ import React from "react";
 import { AllCredits } from "../Components/BuyCredits/AllCredits";
 import { Header } from "../Layout/Header";
 import { Navigation } from "../Layout/Navigation";
+import Footer from "../Layout/footer";
 
 export const BuyCredits = () => {
   return (
@@ -14,6 +15,7 @@ export const BuyCredits = () => {
             // text="Buy Credits to do something special"
           />
           <AllCredits />
+          {/* <Footer /> */}
         </div>
       </div>
     </>

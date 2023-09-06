@@ -1886,6 +1886,17 @@ button.btn.btn-info:hover {
     width: 100%;
     bottom: 0;
   }
+  html footer {
+    position: relative !important;
+    bottom: 60px;
+    height: auto !important;
+  }
+
+  html .main-items-footer {
+    display: block !important;
+    text-align: center;
+    padding: 10px 0;
+  }
   .table-listing-user {
     padding-top: 70px !important;
   }
@@ -2451,7 +2462,7 @@ span.text-danger.error {
   width: 50px;
 }
 .main-all-homeprofiles .lockedImages img {
-  transform: scale(2.1);
+  transform: scale(2.5);
 }
 .main-all-homeprofiles .lockedImages {
   border-radius: 10px;
@@ -2470,25 +2481,76 @@ span.text-danger.error {
   overflow: hidden;
   aspect-ratio: 1/1;
   border-radius: 10px;
-  margin-left: 10px;
+  /* margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 30px; */
 }
 
-.welcome-page .proimg img {
+/* .welcome-page .proimg img {
   transform: scale(2);
   width: 100% !important;
   height: 100% !important;
-}
+} */
 .myprof.bio-wrap .myproimg img,
 .related-image-profile .false img {
-  transform: scale(2.1);
+  transform: scale(2.5);
 }
 .collections-all a.proimg.unlocked img {
-  transform: scale(2.1);
+  transform: scale(2.5);
 }
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .message-day {
     height: calc(100vh - 210px);
   }
+}
+
+p.support-mail {
+  color: #fff;
+  font-family: inter;
+  padding-top: 15px;
+}
+
+footer {
+  background-color: #2a2a2a;
+  height: 65px;
+  border-color: #2b2b2f;
+}
+
+.main-items-footer {
+  height: 100%;
+}
+
+p.copyright {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 14px;
+}
+
+span.email-footer {
+  color: #fff;
+  font-family: "Inter";
+  font-size: 14px;
+}
+
+ul.footer-terms li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Inter";
+  font-size: 14px;
+  padding: 0 10px;
+}
+footer {
+  position: sticky;
+  bottom: 0;
+}
+.main-all-homeprofiles.container {
+  min-height: 100vh;
+}
+
+.container-xl.px-2.px-sm-3.buy-credits-page.container {
+  min-height: 100vh;
+}
+.total-credit.container {
+  min-height: 100vh;
 }

@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile } from "../Redux/actions";
+import Footer from "../Layout/footer";
 
 export const MyAccount = () => {
   const { userProfile } = useSelector((s) => s.User);
@@ -70,11 +71,15 @@ export const MyAccount = () => {
                 >
                   Log Out
                 </div>
+                <p className="support-mail">
+                  Support Email: support@aigirlfriendchat.net
+                </p>
               </div>
             </div>
           </Container>
         </div>
       </div>
+      {/* <Footer /> */}
     </>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { AllCollection } from "../Components/MyCollections/AllCollection";
 import { Header } from "../Layout/Header";
 import { Navigation } from "../Layout/Navigation";
+import Footer from "../Layout/footer";
 
 export const MyCollections = () => {
   return (
@@ -14,6 +15,7 @@ export const MyCollections = () => {
             // text="View and Purchase our all Profiles"
           />
           <AllCollection />
+          {/* <Footer /> */}
         </div>
       </div>
     </>
