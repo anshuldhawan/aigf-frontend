@@ -27,12 +27,12 @@ export const Chats = () => {
             botId={botUserId}
             setBotId={setBotUserId}
           />
-          <ChatMessages
+         {botId && <ChatMessages
             show={show}
             Setshow={Setshow}
             botId={botUserId}
             setBotId={setBotUserId}
-          />
+          />}
         </div>
       </div>
     </>

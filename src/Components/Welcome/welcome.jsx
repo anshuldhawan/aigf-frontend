@@ -9,6 +9,7 @@ import CineSeven from "../../assets/welcome/cine7.png";
 import CineEight from "../../assets/welcome/cine8.jpg";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 const Welcome = () => {
   var settings = {
@@ -82,6 +83,8 @@ const Welcome = () => {
     ],
     rtl: true,
   };
+
+  ReactGA.send({ hitType: "pageview", page: "/welcome" , title: "Custom Title" });
   return (
     <div className="welcome-page">
       <section className="hoemtop theme-shadow card-bg-1">

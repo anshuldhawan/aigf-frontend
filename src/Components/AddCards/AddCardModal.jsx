@@ -18,7 +18,7 @@ import MasterCrd from "../../assets/images/mastercard.jpg";
 import Amex from "../../assets/images/amex.jpg";
 import LockImg from "../../assets/images/lockimg.png";
 import StripeBtn from "../../assets/images/stripe-btn.png";
-
+import ReactGA from "react-ga4";
 const useOptions = () => {
   const fontSize = "18px";
   const options = useMemo(
@@ -165,7 +165,7 @@ const AddCardModal = (props) => {
             </div>
           </div>
 
-          <button type="submit" disabled={!stripe} className="payBtn">
+          <button type="submit" disabled={!stripe} onClick={()=>  ReactGA.event({category: 'PAYMENT', action: 'initiate-payment', label: 'Initiate Payment'})} className="payBtn">
             Pay
           </button>
         </form>

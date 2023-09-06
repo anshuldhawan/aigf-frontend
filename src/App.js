@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
 import { initFirebaseBackend } from "./helper/firebase";
+import ReactGA from "react-ga4";
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -22,6 +23,7 @@ function App() {
       appId: process.env.REACT_APP_APP_ID,
       measurementId: process.env.REACT_APP_MEASUREMENT_ID,
     };
+    ReactGA.initialize(process.env.REACT_APP_MEASUREMENT_ID)
 
     initFirebaseBackend(firebaseConfig);
   }, []);

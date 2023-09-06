@@ -11,7 +11,7 @@ export const BuyCredits = () => {
         <div className="profiles-home main-visible">
           <Header
             title="Buy Credits"
-            text="Buy Credits to do something special"
+            // text="Buy Credits to do something special"
           />
           <AllCredits />
         </div>

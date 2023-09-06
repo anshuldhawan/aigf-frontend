@@ -18,7 +18,7 @@ export const ProfilesHome = () => {
   const [selectedBot, setSelectedBot] = useState({});
 
   const getUserBotList = () => {
-    dispatch(userBotList());
+    dispatch(userBotList({page : 1 , limit : 10000}));
   };
 
   useEffect(() => {

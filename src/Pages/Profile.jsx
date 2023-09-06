@@ -12,7 +12,7 @@ export const Profile = () => {
         <div className="profiles-home main-visible">
           <Header
             title="Profile"
-            text="Welcome to your Profile, See and unlock more Profile"
+            // text="Welcome to your Profile, See and unlock more Profile"
           />
           <SeeProfile />
         </div>

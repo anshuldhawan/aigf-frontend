@@ -14,6 +14,7 @@ import { getBot, unlockBot } from "../../Redux/actions";
 import Modal from "react-bootstrap/Modal";
 import DummyImages from "../../assets/images/dummy.png";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga4";
 
 const ConfirmPopup = (props) => {
   const { show, hideModal, unlockBots } = props;
@@ -121,6 +122,7 @@ export const SeeProfile = () => {
 
   const handleBot = (dta) => {
     setShowModal(true);
+    ReactGA.event({category: 'UNLOCK', action: 'profile-unlock', label: 'Profile Unlock'})
   };
   return (
     <>
@@ -146,7 +148,7 @@ export const SeeProfile = () => {
               <span>Profession : </span> {botData?.profession}
             </h2>
             <h2>
-              <span>Description : </span> {botData?.description}
+              <span>About Me : </span> {botData?.description}
             </h2>
             {/* <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5> */}
             {/* <p className="text-muted mb-3">{botData?.description}</p> */}

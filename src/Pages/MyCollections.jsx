@@ -11,7 +11,7 @@ export const MyCollections = () => {
         <div className="profiles-home main-visible">
           <Header
             title="My Collection"
-            text="View and Purchase our all Profiles"
+            // text="View and Purchase our all Profiles"
           />
           <AllCollection />
         </div>

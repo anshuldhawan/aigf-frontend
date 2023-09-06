@@ -3,10 +3,15 @@ import { Dropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateRole } from "../Redux/actions";
+// import ReactGA from "react-ga4";
 
 export const Header = ({ title, text }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // ReactGA.event({
+  //   category: 'User',
+  //   action: 'Sent message'
+  // });
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();

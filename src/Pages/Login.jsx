@@ -11,12 +11,16 @@ import ButtonLoader from "../Components/common/ButtonLoader";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { getFirebaseBackend } from "../helper/firebase";
+import ReactGA from "react-ga4";
 
 export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const { loading } = useSelector((s) => s.User);
   const [loading, setLoading] = useState(false);
+  
+  ReactGA.send({ hitType: "pageview", page: "/login" , title: "Custom Title" });
+
 
   const formik = useFormik({
     initialValues: {

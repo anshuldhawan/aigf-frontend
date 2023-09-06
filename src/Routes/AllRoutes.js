@@ -49,6 +49,7 @@ export const AllRoutes = () => {
     { path: "/buy-credits", component: <BuyCredits /> },
     { path: "/profile/:botId", component: <Profile /> },
     { path: "/chats/:botId", component: <Chats /> },
+    { path: "/chats", component: <Chats /> }
   ];
 
   const adminRoutes = [

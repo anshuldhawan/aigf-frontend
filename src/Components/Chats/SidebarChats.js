@@ -41,7 +41,7 @@ export const SidebarChats = ({ show, Setshow, botId, setBotId }) => {
                         >
                           <Link
                             className="contacts-link"
-                            to="#"
+                            to={`/chats/${item.uid}`}
                             onClick={() => setBotId(item.uid)}
                           >
                             <div className="avatar avatar-online chat-without-bg">
@@ -53,8 +53,7 @@ export const SidebarChats = ({ show, Setshow, botId, setBotId }) => {
                                   {item.name}
                                 </h6>
                                 <div className="chat-time">
-                                  {moment
-                                    .utc(item?.lastMessageTime)
+                                  {moment(item?.lastMessageTime)
                                     .format("hh:mm a")}
                                 </div>
                               </div>

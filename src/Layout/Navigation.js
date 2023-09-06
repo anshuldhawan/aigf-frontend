@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { useSelector } from "react-redux";
-
+import ReactGA from "react-ga4"
 export const Navigation = () => {
   const adminToken = localStorage.getItem("adminToken");
   const { role } = useSelector((s) => s.Admin);
   const path = window.location.pathname;
+
+  console.log("sending analytics==>>", path);
+ useEffect(()=>{
+  ReactGA.send({ hitType: "pageview", page: path , title: "Custom Title" });
+ },[path])
+
 
   return (
     <>
@@ -69,6 +75,20 @@ export const Navigation = () => {
                   <i className="fas fa-list"></i>
                   <div className="tooltip-text position-absolute">
                     <p className="m-0">My Collection</p>
+                  </div>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link position-relative p-0 ${
+                    path.includes("chats") && "active"
+                  }`}
+                  to="/chats"
+                >
+                  <i class="fas fa-comments"></i>
+                  {/* <i className="fas fa-list"></i> */}
+                  <div className="tooltip-text position-absolute">
+                    <p className="m-0">Chats</p>
                   </div>
                 </Link>
               </li>

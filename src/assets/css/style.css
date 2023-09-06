@@ -2450,7 +2450,7 @@ span.text-danger.error {
 .images-stripe img {
   width: 50px;
 }
-/* .main-all-homeprofiles .lockedImages img {
+.main-all-homeprofiles .lockedImages img {
   transform: scale(2.1);
 }
 .main-all-homeprofiles .lockedImages {
@@ -2486,7 +2486,7 @@ span.text-danger.error {
 }
 .collections-all a.proimg.unlocked img {
   transform: scale(2.1);
-} */
+}
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .message-day {
     height: calc(100vh - 210px);
