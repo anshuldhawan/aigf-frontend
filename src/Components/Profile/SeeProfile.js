@@ -14,7 +14,7 @@ import { getBot, unlockBot } from "../../Redux/actions";
 import Modal from "react-bootstrap/Modal";
 import DummyImages from "../../assets/images/dummy.png";
 import { toast } from "react-toastify";
-import ReactGA from "react-ga4";
+// import ReactGA from "react-ga4";
 import firebase from "firebase/app";
 import "firebase/analytics";
 
@@ -105,6 +105,7 @@ export const SeeProfile = () => {
 
   const unlockBots = () => {
     handleAnalytic("Unlock_Bot_Initiated");
+
     const callback = (res) => {
       if (res?.data?.error === false) {
         toast.success(res?.data?.message);
@@ -133,11 +134,11 @@ export const SeeProfile = () => {
 
   const handleBot = (dta) => {
     setShowModal(true);
-    ReactGA.event({
-      category: "UNLOCK",
-      action: "profile-unlock",
-      label: "Profile Unlock",
-    });
+    // ReactGA.event({
+    //   category: "UNLOCK",
+    //   action: "profile-unlock",
+    //   label: "Profile Unlock",
+    // });
   };
   return (
     <>

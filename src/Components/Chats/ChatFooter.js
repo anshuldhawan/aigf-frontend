@@ -6,17 +6,32 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { messageHistory, sendMessage } from "../../Redux/actions";
 import ButtonLoader from "../../Components/common/ButtonLoader";
+import firebase from "firebase/app";
+import "firebase/analytics";
 
 export const ChatFooter = ({ setMessaegState, BotData }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
   const [sending, isSending] = useState(false);
+
+  const handleAnalytic = (params) => {
+    firebase.analytics().logEvent(params, {
+      button_name: "pay_button",
+    });
+  };
+
   const handleSubmit = (e) => {
     isSending(true);
+    // handleAnalytic("Send_Message_Initiated")
     e.preventDefault();
     const callBack = (res) => {
       // isSending(false);
+      if (!res.error) {
+        handleAnalytic("Send_Message_Success");
+      } else {
+        handleAnalytic("Send_Message_Failed");
+      }
       setText("");
       dispatch(messageHistory({ uid: BotData?.uid }));
     };
