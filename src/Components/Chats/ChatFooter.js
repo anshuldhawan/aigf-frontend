@@ -23,7 +23,7 @@ export const ChatFooter = ({ setMessaegState, BotData }) => {
 
   const handleSubmit = (e) => {
     isSending(true);
-    // handleAnalytic("Send_Message_Initiated")
+    handleAnalytic("Send_Message_Initiated");
     e.preventDefault();
     const callBack = (res) => {
       // isSending(false);
