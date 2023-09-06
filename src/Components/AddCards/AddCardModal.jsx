@@ -9,7 +9,7 @@ import {
 import Modal from "react-bootstrap/Modal";
 import "./addCard.css";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { buyCredit } from "../../Redux/credits/actions";
 import { useNavigate } from "react-router-dom";
 import { getUserProfile } from "../../Redux/actions";
@@ -18,7 +18,9 @@ import MasterCrd from "../../assets/images/mastercard.jpg";
 import Amex from "../../assets/images/amex.jpg";
 import LockImg from "../../assets/images/lockimg.png";
 import StripeBtn from "../../assets/images/stripe-btn.png";
-import ReactGA from "react-ga4";
+import firebase from "firebase/app";
+import "firebase/analytics";
+// import ReactGA from "react-ga4";
 const useOptions = () => {
   const fontSize = "18px";
   const options = useMemo(
@@ -52,6 +54,12 @@ const AddCardModal = (props) => {
   const elements = useElements();
   const options = useOptions();
 
+  const handleAnalytic = (params) => {
+    firebase.analytics().logEvent(params, {
+      button_name: "pay_button",
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -78,9 +86,13 @@ const AddCardModal = (props) => {
       const callback = (res) => {
         if (res.error === false) {
           toast.success(res?.message);
+          console.log("payment Successss");
+          handleAnalytic("Payment_Success");
           props.hide();
           navigate("/credits");
         } else {
+          console.log("payment failedddd");
+          handleAnalytic("Payment_Failed");
           toast.error(res?.message);
         }
       };
@@ -165,7 +177,12 @@ const AddCardModal = (props) => {
             </div>
           </div>
 
-          <button type="submit" disabled={!stripe} onClick={()=>  ReactGA.event({category: 'PAYMENT', action: 'initiate-payment', label: 'Initiate Payment'})} className="payBtn">
+          <button
+            type="submit"
+            disabled={!stripe}
+            onClick={() => handleAnalytic("Payment_Initiated")}
+            className="payBtn"
+          >
             Pay
           </button>
         </form>
