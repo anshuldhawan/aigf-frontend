@@ -86,12 +86,10 @@ const AddCardModal = (props) => {
       const callback = (res) => {
         if (res.error === false) {
           toast.success(res?.message);
-          console.log("payment Successss");
           handleAnalytic("Payment_Success");
           props.hide();
           navigate("/credits");
         } else {
-          console.log("payment failedddd");
           handleAnalytic("Payment_Failed");
           toast.error(res?.message);
         }
@@ -142,7 +140,10 @@ const AddCardModal = (props) => {
         </Button> */}
       </Modal.Header>
       <Modal.Body>
-        <form onSubmit={handleSubmit} className="d-flex flex-column">
+        <form
+          onSubmit={(e) => handleSubmit(e, "Payment_Initiated")}
+          className="d-flex flex-column"
+        >
           <div className="car-number-cvc d-flex justify-content-between gap-2">
             <label className="crd-nmber-field">
               Card number

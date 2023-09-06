@@ -15,6 +15,8 @@ import Modal from "react-bootstrap/Modal";
 import DummyImages from "../../assets/images/dummy.png";
 import { toast } from "react-toastify";
 import ReactGA from "react-ga4";
+import firebase from "firebase/app";
+import "firebase/analytics";
 
 const ConfirmPopup = (props) => {
   const { show, hideModal, unlockBots } = props;
@@ -95,14 +97,23 @@ export const SeeProfile = () => {
     }
   }, [botId]);
 
+  const handleAnalytic = (params) => {
+    firebase.analytics().logEvent(params, {
+      button_name: "pay_button",
+    });
+  };
+
   const unlockBots = () => {
+    handleAnalytic("Unlock_Bot_Initiated");
     const callback = (res) => {
       if (res?.data?.error === false) {
         toast.success(res?.data?.message);
+        handleAnalytic("Unlock_Bot_Success");
         setShowModal(false);
         dispatch(getBot({ uid: botId }));
       } else {
         setShowModal(false);
+        handleAnalytic("Unlock_Bot_Failed");
         toast.error(res?.data?.message);
       }
       if (
@@ -122,7 +133,11 @@ export const SeeProfile = () => {
 
   const handleBot = (dta) => {
     setShowModal(true);
-    ReactGA.event({category: 'UNLOCK', action: 'profile-unlock', label: 'Profile Unlock'})
+    ReactGA.event({
+      category: "UNLOCK",
+      action: "profile-unlock",
+      label: "Profile Unlock",
+    });
   };
   return (
     <>

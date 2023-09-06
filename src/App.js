@@ -8,8 +8,6 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
 import { initFirebaseBackend } from "./helper/firebase";
 import ReactGA from "react-ga4";
-import firebase from "firebase/app";
-import "firebase/analytics";
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -30,17 +28,8 @@ function App() {
     initFirebaseBackend(firebaseConfig);
   }, []);
 
-  const handleButtonClick = () => {
-    firebase.analytics().logEvent("button_click", {
-      button_name: "custom_button",
-    });
-
-    // Add your button click logic here.
-  };
-
   return (
     <>
-      <button onClick={handleButtonClick}>Google Analytics</button>
       <ToastContainer autoClose={1500} />
       <GoogleOAuthProvider clientId={CLIENT_ID}>
         <AllRoutes />
