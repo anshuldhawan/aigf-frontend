@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { useSelector } from "react-redux";
-import ReactGA from "react-ga4";
 export const Navigation = () => {
-  const adminToken = localStorage.getItem("adminToken");
   const { role } = useSelector((s) => s.Admin);
   const path = window.location.pathname;
 
@@ -17,10 +15,10 @@ export const Navigation = () => {
     <>
       <div className="navigation navbar navbar-light">
         <Link className="d-none d-xl-block rounded p-1 pt-2" to="#">
-          <img src={Logo} width="38" />
+          <img src={Logo} width="38" alt="" />
         </Link>
         <ul className="nav nav-minimal flex-row flex-grow-1 justify-content-between flex-xl-column justify-content-xl-center">
-          {role == "user" && (
+          {role === "user" && (
             <>
               <li className="nav-item">
                 <Link
@@ -95,7 +93,7 @@ export const Navigation = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link position-relative p-0 ${
-                    path == "/buy-credits" && "active"
+                    path === "/buy-credits" && "active"
                   }`}
                   to="/buy-credits"
                 >
@@ -183,7 +181,7 @@ export const Navigation = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link position-relative p-0 ${
-                    path == "/credits" && "active"
+                    path === "/credits" && "active"
                   }`}
                   to="/credits"
                 >
@@ -210,7 +208,7 @@ export const Navigation = () => {
             </>
           )}
 
-          {role == "admin" && (
+          {role === "admin" && (
             <li className="nav-item">
               <Link
                 className={`nav-link position-relative p-0 ${

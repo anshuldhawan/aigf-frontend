@@ -7,6 +7,8 @@ import CineFive from "../../assets/welcome/cine5.png";
 import CineSix from "../../assets/welcome/cine6.png";
 import CineSeven from "../../assets/welcome/cine7.png";
 import CineEight from "../../assets/welcome/cine8.jpg";
+import CineNine from "../../assets/welcome/cine9.jpg";
+import CineTen from "../../assets/welcome/cine10.png";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import ReactGA from "react-ga4";
@@ -130,35 +132,35 @@ const Welcome = () => {
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineOne} />
+                  <img className="img-fluid w-100" src={CineFive} alt="" />
                 </div>
               </div>
             </div>
             <div className="">
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineFive} />
+                  <img className="img-fluid w-100" src={CineOne} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineThree} />
+                  <img className="img-fluid w-100" src={CineSix} alt="" />
                 </div>
               </div>
             </div>
             <div className="">
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineFive} />
+                  <img className="img-fluid w-100" src={CineNine} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineFour} />
+                  <img className="img-fluid w-100" src={CineTen} alt="" />
                 </div>
               </div>
             </div>
@@ -166,21 +168,21 @@ const Welcome = () => {
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineTwo} />
+                  <img className="img-fluid w-100" src={CineFour} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineEight} />
+                  <img className="img-fluid w-100" src={CineTwo} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineFour} />
+                  <img className="img-fluid w-100" src={CineSeven} alt="" />
                 </div>
               </div>
             </div>
@@ -190,49 +192,49 @@ const Welcome = () => {
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineSix} />
+                  <img className="img-fluid w-100" src={CineSix} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineSeven} />
+                  <img className="img-fluid w-100" src={CineSeven} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineOne} />
+                  <img className="img-fluid w-100" src={CineNine} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineEight} />
+                  <img className="img-fluid w-100" src={CineEight} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineTwo} />
+                  <img className="img-fluid w-100" src={CineTen} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineSix} />
+                  <img className="img-fluid w-100" src={CineSix} alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineSeven} />
+                  <img className="img-fluid w-100" src={CineFive} alt="" />
                 </div>
               </div>
             </div>
@@ -240,7 +242,7 @@ const Welcome = () => {
             <div>
               <div className=" mb-30">
                 <div className="proimg">
-                  <img className="img-fluid w-100" src={CineThree} />
+                  <img className="img-fluid w-100" src={CineEight} alt="" />
                 </div>
               </div>
             </div>
